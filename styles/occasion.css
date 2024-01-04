@@ -66,3 +66,30 @@ a {
     padding: 0%;
     margin: 0%;
 }
+
+.occasionAccueil {
+    background-image: url("/image_ecf/occasion.jpg");
+    background-size: cover;
+    height: 70vh;
+    background-position: center top;
+    padding: 0;
+    margin: 0;
+}
+
+.occasionAccueil h1 {
+    color: #D02332;
+    font-size: 6rem;
+    text-align: center;
+    padding-top: 5rem;
+    margin: 0;
+}
+
+.occasion1 {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-size: 1.5rem;
+    text-align: center;
+}

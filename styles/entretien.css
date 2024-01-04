@@ -70,7 +70,8 @@ a {
 .entretienAccueil {
     background-image: url("/image_ecf/entretien1.png");
     background-size: cover;
-    height: 100vh;
+    height: 70vh;
+    background-position: center top;
     padding: 0;
     margin: 0;
 }
@@ -83,13 +84,6 @@ a {
     padding-top: 5rem;
 }
 
-.entretienAccueil h3 {
-    color:#d9777F;
-    font-size: 5rem;
-    text-align: center;
-    margin: 0;
-    padding-top: 29rem;
-}
 
 .entretien1 {
     display: flex;
@@ -140,4 +134,5 @@ a {
     height: 25rem;
     color: white;
     justify-content: space-evenly;
+    padding-top: 5rem;
 }
