@@ -66,3 +66,78 @@ a {
     padding: 0%;
     margin: 0%;
 }
+
+.entretienAccueil {
+    background-image: url("/image_ecf/entretien1.png");
+    background-size: cover;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.entretienAccueil h1 {
+    color: #D02332;
+    font-size: 6rem;
+    text-align: center;
+    margin: 0;
+    padding-top: 5rem;
+}
+
+.entretienAccueil h3 {
+    color:#d9777F;
+    font-size: 5rem;
+    text-align: center;
+    margin: 0;
+    padding-top: 29rem;
+}
+
+.entretien1 {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.entretien {
+    display: grid;
+    grid-template-columns: 50% 35%;
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    padding-bottom: 8rem;
+}
+
+.entretien2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    font-size: 2.5rem;
+    align-items: center;
+    list-style: none;
+}
+
+.liEntretien {
+    list-style: none;
+}
+
+.liEntretien li {
+    padding: 1.5rem;
+}
+
+.iColor {
+    color: #D02332;
+    font-size: 2.5rem;
+}
+
+.footer {
+    display: flex;
+    background-image: url("/image_ecf/footer.jpg");
+    width: 100%;
+    height: 25rem;
+    color: white;
+    justify-content: space-evenly;
+}
