@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/styles/accueil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -20,11 +20,11 @@
             
                 <nav class="nav">
                     <ul class="navListe">
-                        <li>Accueil</li>
-                        <li>Entretien</li>
-                        <li>Réparation</li>
-                        <li>Véhicule Occasion</li>
-                        <li>Contact</li>
+                        <li class="navList"><a href="#accueil">Accueil</a></li>
+                        <li class="navList"><a href="#entretien">Entretien</a></li>
+                        <li class="navList"><a href="#reparation">Réparation</a></li>
+                        <li class="navList"><a href="#vehiculeOccasion">Véhicule Occasion</a></li>
+                        <li class="navList"><a href="/pages/contact.html">Contact</a></li>
                     </ul>
                 </nav>        
         </div>
@@ -86,15 +86,15 @@
         <div class="ouSommeNous">
             <div class="ouSommeNousAdresse">
                 <div class="ouSommeNousContent">
-                    <i class="fa-solid fa-location-dot"></i>   
+                    <i class="fa-solid fa-location-dot iColor"></i>   
                     <p>29 rue Georges Ohnet, 31000 Toulouse</p>  
                 </div>
                 <div class="ouSommeNousContent">
-                    <i class="fa-solid fa-phone"></i>
+                    <i class="fa-solid fa-phone iColor"></i>
                     <p>TEL: 06 71 06 19 19</p>
                 </div>
                 <div class="ouSommeNousContent">
-                    <i class="fa-regular fa-clock"></i>
+                    <i class="fa-regular fa-clock iColor"></i>
                     <div>
                         <p>Lundi: 8:45 - 12:00 / 14:00 - 18:00</p>
                         <p>Mardi: 8:45 - 12:00 / 14:00 - 18:00</p>
@@ -135,6 +135,6 @@
         </p>
         </div>
     </footer>
-    <script src="/script.js"></script>
+    <script src="/scripts/accueil.js"></script>
 </body>
 </html>
