@@ -143,3 +143,44 @@ body {
     display: grid;   
 }
 
+.mainOuSommeNous {
+    margin-bottom: 10rem;
+}
+
+.ouSommeNous {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.ouSommeNousAdresse {
+    display: grid;
+    grid-template-rows: 15% 15% 70%;
+}
+
+.ouSommeNousContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: normal;
+    align-items: center;
+    gap: 3rem
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9777f89;
+    width: 30rem;
+    height: 30rem;
+    margin: 0 auto;
+}
+
+.footer {
+    display: flex;
+    background-image: url("/image_ecf/footer.jpg");
+    width: 100%;
+    height: 25rem;
+    color: white;
+    justify-content: space-evenly;
+}

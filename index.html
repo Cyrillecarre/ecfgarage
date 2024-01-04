@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <title>Document</title>
 </head>
 <body>
@@ -79,20 +81,51 @@
                     <p>Nous reprenons votre véhicule au meilleur prix. Contactez-nous pour en savoir plus.</p>
             </div>
     </main>
-    <main>
+    <main class="mainOuSommeNous">
         <h1 class="titreAccueil">OU SOMMES-NOUS ?</h1>
+        <div class="ouSommeNous">
+            <div class="ouSommeNousAdresse">
+                <div class="ouSommeNousContent">
+                    <i class="fa-solid fa-location-dot"></i>   
+                    <p>29 rue Georges Ohnet, 31000 Toulouse</p>  
+                </div>
+                <div class="ouSommeNousContent">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>TEL: 06 71 06 19 19</p>
+                </div>
+                <div class="ouSommeNousContent">
+                    <i class="fa-regular fa-clock"></i>
+                    <div>
+                        <p>Lundi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Mardi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Mercredi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Jeudi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Vendredi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Samedi: 8:45 - 12:00</p>
+                        <p>dimanche: Fermé</p>
+                    </div>
+                </div>
+            </div>
+            <div id="map" class="map">
+                api map
+            </div>   
+        </div>
     </main>
-    <footer>
+    <footer class="footer">
         <div>
-            <h2>Horaires</h2>
-            <p>Lundi au Vendredi : 8h30 - 12h00 / 14h00 - 18h30</p>
-            <p>Samedi : 8h30 - 12h00 / 14h00 - 17h30</p>
-            <p>Dimanche : fermé</p>
+            <h2>Horaires <i class="fa-regular fa-clock"></i></h2>
+            <p>Lundi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Mardi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Mercredi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Jeudi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Vendredi: 8:45 - 12:00 / 14:00 - 18:00</p>
+                        <p>Samedi: 8:45 - 12:00</p>
+                        <p>dimanche: Fermé</p>
         </div>
         <div>
-            <h2>Plan d'accès</h2>
+            <h2>Adresse <i class="fa-solid fa-location-dot"></i> </h2>
             <p>Garage V.PARROT</p>
-            <p>2 rue de la République</p>
+            <p>29 rue Georges Ohnet</p>
             <p>31000 Toulouse</p>
         </div>
         <div>
@@ -102,5 +135,6 @@
         </p>
         </div>
     </footer>
+    <script src="/script.js"></script>
 </body>
 </html>
