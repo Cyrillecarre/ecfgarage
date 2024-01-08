@@ -36,6 +36,11 @@ a {
     justify-content: flex-end;
     background-color: white;
     text-align: center;
+    align-items: center;
+}
+
+.header2 a {
+    color: #D02332 ;
 }
 
 .nav {

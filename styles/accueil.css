@@ -34,8 +34,13 @@ a {
     flex-direction: row;
     width: 100%;    
     justify-content: flex-end;
+    align-items: center;
     background-color: white;
     text-align: center;
+}
+
+.header2 a {
+    color: #D02332 ;
 }
 
 .nav {
