@@ -12,7 +12,7 @@ session_start();
 </head>
 <body>
     <div class="formBody">
-        <form action="mdp.php" class="form" method="POST">
+        <form action="connection.php" class="form" method="POST">
             <label for="pseudo">Nom de connection</label>
             <input type="text" id="pseudo" name="pseudo" required>
             <label for="password">Mot de passe</label>
@@ -24,24 +24,29 @@ session_start();
         <a href="/index.html" class="retour">Retour à l'accueil</a>
     </div>
 
-    <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['pseudo'])&& isset ($_POST['password'])){
-            $pseudo = $_POST['pseudo'];
-            $password = $_POST['password'];
-            if ($pseudo === 'admin' && $password === 'admin'){
-                $_SESSION['admin'] = true;
-                $_SESSION['pseudo'] = $pseudo;
-                setcookie('pseudo', $pseudo, time() + 3600, '/');
-                header('Location: /server/prive.php');
-            } if ($pseudo === 'user' && $password === 'user'){
-                $_SESSION['admin'] = false;
-                $_SESSION['pseudo'] = $pseudo;
-                setcookie('pseudo', $pseudo, time() + 3600, '/');
-                header('Location: /server/prive.php');
-            } else {
-                echo "Erreur d'identifiant ou de mot de passe.";
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            if (isset($_POST['pseudo']) && isset($_POST['password'])) {
+                $pseudo = $_POST['pseudo'];
+                $password = $_POST['password'];
+                if ($pseudo === 'admin' && $password === 'admin') {
+                    $_SESSION['admin'] = true;
+                    $_SESSION['pseudo'] = $pseudo;
+                    setcookie('pseudo', $pseudo, time() + 3600, '/');
+                    header('location: /server/prive.php');
+                    
+                } if ($pseudo === 'user' && $password === 'user') {
+                    $_SESSION['admin'] = false;
+                    $_SESSION['pseudo'] = $pseudo;
+                    setcookie('pseudo', $pseudo, time() + 3600, '/');
+                    header('location: /server/prive.php');
+                
+                } else {
+                    echo "Erreur d'identifiant ou de mot de passe.";
+                }
             }
         }
-    } ?>
+ ?>
+
 </body>
 </html>

@@ -1,5 +1,9 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +11,7 @@
 </head>
 <body>
     <h1>Bienvenue sur la page privé du Garage V.PARROT</h1>
-    <?php if (isset($_SESSION['admin']) AND $_SESSION['admin'] == true) { ?>
+    <?php if (isset($_SESSION['admin']) AND $_SESSION['admin'] == true) { var_dump($_SESSION['admin']);?>
         <h1>Bonjour MONSIEUR PARROT</h1>
         <p>Que voulez-vous modifier sur votre site web?</p>
         <nav>
@@ -18,7 +22,7 @@
             </ul>
         </nav>
 
-    <?php } else { ?>
+    <?php } else { var_dump($_SESSION['user']);?>
         <h1>Bonjour, vous etes connecté en tant qu'employé du garage V.PARROT</h1>
         <p>Que voulez-vous modifier sur le site web du garage ?</p>
         <nav>
