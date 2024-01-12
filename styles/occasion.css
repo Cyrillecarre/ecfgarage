@@ -98,3 +98,69 @@ a {
     font-size: 1.5rem;
     text-align: center;
 }
+
+.vehiculeContener {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.vehiculeContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 30rem;
+    padding: 0;
+    margin-top: 1rem;
+    border: 1px solid #D02332;
+    border-radius: 0.5rem;
+    background-color: #d9777f89
+}
+
+.vehiculeName {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: max-content;
+}
+
+.imageContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+    width: 15rem;
+    height: 13rem;
+    padding: 0;
+    margin: 0;
+}
+
+.vehiculeDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 13rem;
+    gap: 0px;
+    padding: 0;
+    margin: 0;
+}
+
+.vehiculeText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 20rem;
+    gap: 0px;
+    padding: 0;
+    margin: 0;
+}

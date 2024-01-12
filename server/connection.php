@@ -10,7 +10,7 @@ session_start();
     <link rel="stylesheet" href="/styles/connection.css">
     <title>Formulaire de connection</title>
 </head>
-<body>
+<body class="body">
     <div class="formBody">
         <form action="connection.php" class="form" method="POST">
             <label for="pseudo">Nom de connection</label>

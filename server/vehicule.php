@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/styles/vehicule.css">
     <title>Véhicule</title>
 </head>
-<body>
+<body class="body">
     <div class="vehiculeTitre">
         <h1>Ajouter un véhicule</h1>
     </div>
@@ -51,14 +51,28 @@
         <h1>Supprimer un véhicule</h1>
         <div class="form">
             <form class="formContent" method="post" action="vehicule.php">
-                <label class="label" for="deleteName">Nom du véhicule :</label>
+                <label class="label2" for="deleteName">Nom du véhicule :</label>
                 <input class="input" type="text" id="deleteName" name="deleteName" required>
-                <label class="label" for="deleteKilometer">Kilométrage du véhicule :</label>
+                <label class="label2" for="deleteKilometer">Kilométrage du véhicule :</label>
                 <input class="input" type="text" id="deleteKilometer" name="deleteKilometer" required>
                 <input class="submit" type="submit" name="submitDelete" value="Supprimer le véhicule">
             </form>
         </div>
     </main>
+    <aside>
+        <form method="post" action="vehicule.php">
+            <input type="hidden" name="logout" value="true">
+            <button class="submitRetour" type="submit">Retour</button>
+        </form>
+    </aside>
+    <?php
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header("Location: /server/connection.php");
+    exit();
+}
+?>
+
     
     <?php
 include('bdd.php');
