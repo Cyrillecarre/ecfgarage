@@ -5,20 +5,21 @@
     height: 80vh;
 }
 
-
-.vehiculeTitre {
+.userAdd {
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
-    margin: 0.5em;
+    margin-top: 1.5em;
     color: #D92332;
+
 }
+
 
 .form {
     flex-direction: column;
+    padding-top: 1rem;
     height: auto;
     margin: 0 auto; 
-
 }
 
 .formContent {
@@ -26,9 +27,11 @@
     grid-template-columns: 15rem 18rem; ;
     flex-direction: column;
     align-items: space-around;
-    width: 33rem;
+    width: 34rem;
     height: auto;
     margin: 0 auto;
+    padding: 5px;
+    gap: 5px;
     border: 3px solid #D92332;
     background-color: #d9777f88;
     border-radius: 1rem;
@@ -42,24 +45,6 @@
     margin: 0.5rem;
     font-weight: bold;
     color: black;
-}
-
-.label2 {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    font-size: 1rem;
-    margin: 0.5rem;
-    font-weight: bold;
-    color: black;
-}
-
-.input {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    height: 1.6rem;
-    margin: 0.5rem;   
 }
 
 .submit {
