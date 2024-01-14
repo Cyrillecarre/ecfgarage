@@ -26,7 +26,7 @@
                 <input class="input" type="text" id="deleteEmail" name="deleteEmail" required>
                 <label class="label" for="deletePassword">Mot de passe :</label>
                 <input class="input" type="password" id="deletePassword" name="deletePassword" required>
-                <input class="submit" type="submit" name="submitDelete value="Supprimer un employé">
+                <input class="submit" type="submit" name="submitDelete" value="Supprimer un employé">
             </form>
         </div>
         <aside>
@@ -34,7 +34,7 @@
             <input label="label" type="hidden" name="logout" value="true">
             <button class="submitRetour" type="submit">Retour</button>
         </form>
-    </aside>
+        </aside>
     </main>
     <?php
     //ajout d'un employé//
@@ -67,13 +67,12 @@
     //suppression d'un employé//
     if (isset($_POST['submitDelete'])) {
         $deleteEmail = $_POST['deleteEmail'];
-        $deletePassword = $_POST['deletePassword'];
 
         $sql_delete_user = "DELETE FROM user WHERE email = :email AND password = :password";
         $stmt_delete_user = $connect->prepare($sql_delete_user);
         $stmt_delete_user->bindParam(':email', $deleteEmail, PDO::PARAM_STR);
         $stmt_delete_user->bindParam(':password', $deletePassword, PDO::PARAM_STR);
-    
+
         if ($stmt_delete_user->execute()) {
             echo '<script>alert("Employé supprimé avec succès!");</script>';
         } else {

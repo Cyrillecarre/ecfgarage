@@ -2,7 +2,7 @@
     background: url("/image_ecf/accueil.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 80vh;
 }
 
 .titrePrive {
@@ -30,7 +30,6 @@
     width: 40%;
     height: auto;
     margin: 0 auto;
-    padding: 0;
     border: 3px solid #D02332;
     border-radius: 0.5rem;
     background-color: #d9777f89;
@@ -54,4 +53,30 @@
     border-radius: 0.5rem;
     background-color: #d9777f89;
     width: 13rem;
+}
+
+.submitRetour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    height: 2.5rem;
+    width: 14rem;
+    font-size: 1.4rem;
+    border: 2px solid #D92332;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.submitRetour a {
+    text-decoration: none;
+    color: black;
+}
+
+.form {
+    flex-direction: column;
+    padding-top: 1rem;
+    height: auto;
+    margin: 0 auto; 
 }

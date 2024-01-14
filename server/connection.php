@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('bdd.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,38 +11,64 @@ session_start();
     <title>Formulaire de connection</title>
 </head>
 <body class="body">
-    <div class="formBody">
-        <form action="connection.php" class="form" method="POST">
-            <label for="pseudo">Nom de connection</label>
-            <input type="text" id="pseudo" name="pseudo" required>
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password" required>
-            <input type="submit" value="Se connecter">
+    <h1 class="titrePrive">Bienvenue sur la page de connexion du Garage V.PARROT</h1>
+    <div class="form">
+        <form action="connection.php" class="formContent" method="POST">
+            <label class="label" for="email">E-mail de connexion :</label>
+            <input class="input" type="text" id="email" name="email" required>
+            <label class="label" for="password">Mot de passe :</label>
+            <input class="input" type="password" id="password" name="password" required>
+            <input class="submit" type="submit" name="submit" value="Se connecter">
         </form>
     </div>
-    <div class="retour">
-        <a href="/index.html" class="retour">Retour à l'accueil</a>
-    </div>
+    <aside>
+            <form class="form" method="post" action="connection.php">
+                <input label="label" type="hidden" name="logout" value="true">
+                <button class="submitRetour" type="submit">Retour</button>
+            </form>
+    </aside>
+
+    <?php
+        if (isset($_POST['logout'])) {
+        header("Location: ../index.html");
+        }
+    ?>
 
     <?php
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            if (isset($_POST['pseudo']) && isset($_POST['password'])) {
-                $pseudo = $_POST['pseudo'];
+            if (isset($_POST['email']) && isset($_POST['password'])) {
+                $email = $_POST['email'];
                 $password = $_POST['password'];
-                if ($pseudo === 'admin' && $password === 'admin') {
-                    $_SESSION['admin'] = true;
-                    $_SESSION['pseudo'] = $pseudo;
-                    setcookie('pseudo', $pseudo, time() + 3600, '/');
-                    header('location: /server/prive.php');
-                    
-                } if ($pseudo === 'user' && $password === 'user') {
+
+                $sql_user = "SELECT * FROM user WHERE email = :email";
+                $stmt_user = $connect->prepare($sql_user);
+                $stmt_user->bindParam(':email', $email, PDO::PARAM_STR);
+                $stmt_user->execute();
+                $user = $stmt_user->fetch(PDO::FETCH_ASSOC);
+    
+                if ($user && password_verify($password, $user['password'])) {
                     $_SESSION['admin'] = false;
-                    $_SESSION['pseudo'] = $pseudo;
-                    setcookie('pseudo', $pseudo, time() + 3600, '/');
+                    $_SESSION['email'] = $email;
+                    setcookie('email', $email, time() + 3600, '/');
                     header('location: /server/prive.php');
-                
+                    exit();
                 } else {
-                    echo "Erreur d'identifiant ou de mot de passe.";
+                    $sql_admin = "SELECT * FROM admin WHERE email = :email";
+                    $stmt_admin = $connect->prepare($sql_admin);
+                    $stmt_admin->bindParam(':email', $email, PDO::PARAM_STR);
+                    $stmt_admin->execute();
+                    $admin = $stmt_admin->fetch(PDO::FETCH_ASSOC);
+    
+                    if ($admin && password_verify($password, $admin['password'])) {
+                        $_SESSION['admin'] = true;
+                        $_SESSION['email'] = $email;
+                        setcookie('email', $email, time() + 3600, '/');
+                        header('location: /server/prive.php');
+                        exit();
+    
+                    } else {
+                        echo '<script>alert("Erreur, email ou mot de passe incorrect");</script>';
+                    }
                 }
             }
         }

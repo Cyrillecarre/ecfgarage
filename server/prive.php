@@ -25,6 +25,12 @@ session_start();
                     </ul>
                 </nav>
             </div>
+            <aside>
+                <form class="form" method="post" action="prive.php">
+                    <input label="label" type="hidden" name="logout" value="true">
+                    <button class="submitRetour" type="submit">Retour</button>
+                </form>
+            </aside>
         </div>
 
     <?php } else { ;?>
@@ -39,7 +45,21 @@ session_start();
                     </ul>
                 </nav>
             </div>
+            <aside>
+                <form class="form" method="post" action="prive.php">
+                    <input label="label" type="hidden" name="logout" value="true">
+                    <button class="submitRetour" type="submit">Retour</button>
+                </form>
+            </aside>
         </div>
     <?php } ?>
+
+    <?php
+        if (isset($_POST['logout'])) {
+        session_destroy();
+        header("Location: /server/connection.php");
+        exit();
+        }
+    ?>
 </body>
 </html>
