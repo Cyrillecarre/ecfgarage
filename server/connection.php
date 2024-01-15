@@ -1,6 +1,4 @@
-<?php
-include('bdd.php');
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,11 +28,13 @@ include('bdd.php');
 
     <?php
         if (isset($_POST['logout'])) {
-        header("Location: ../index.html");
+        header("Location: ../index.php");
         }
     ?>
 
     <?php
+    
+    include('bdd.php');
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if (isset($_POST['email']) && isset($_POST['password'])) {
                 $email = $_POST['email'];

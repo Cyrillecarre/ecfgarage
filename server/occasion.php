@@ -27,7 +27,7 @@ $result = $connect->query($sql);
             
                 <nav class="nav">
                     <ul class="navListe">
-                        <li><a href="/index.html">Accueil</a></li>
+                        <li><a href="/index.php">Accueil</a></li>
                         <li><a href="/pages/entretien.html">Entretien</a></li>
                         <li><a href="/pages/reparation.html">Réparation</a></li>
                         <li><a href="/server/occasion.php">Véhicule Occasion</a></li>

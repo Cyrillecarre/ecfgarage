@@ -201,3 +201,7 @@ a {
     justify-content: space-evenly;
     padding-top: 5rem;
 }
+
+.footer table {
+    color: white;
+}
