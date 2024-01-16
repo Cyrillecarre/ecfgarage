@@ -1,7 +1,3 @@
-<?php
-include('bdd.php');
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -47,19 +43,6 @@ include('bdd.php');
             <label class="label" for="samedi_matin">Samedi matin :</label>
             <input type="time" name="hours_ouverture_samedi_matin" required>
             <input type="time" name="hours_fermeture_samedi_midi" required>
-            <label class="label" for="ferme_samedi">Samedi après-midi :</label>
-            <input type="checkbox" name="ferme_samedi"> Fermé
-            <label class="label" for="samedi_apres">Samedi après-midi :</label>
-            <input type="time" name="hours_ouverture_samedi_apres">
-            <input type="time" name="hours_fermeture_samedi_soir">
-            <label class="label" for="ferme_dimanche">Dimanche :</label>
-            <input type="checkbox" name="ferme_dimanche"> Fermé
-            <label class="label" for="dimanche_matin">Dimanche matin :</label>
-            <input type="time" name="hours_ouverture_dimanche_matin">
-            <input type="time" name="hours_fermeture_dimanche_midi">
-            <label class="label" for="dimanche_apres">Dimanche après-midi :</label>
-            <input type="time" name="hours_ouverture_dimanche_apres">
-            <input type="time" name="hours_fermeture_dimanche_soir">
             <input class="submit" type="submit" name="submit" value="Modifier les horaires">
         </form>
         <aside>
@@ -77,7 +60,7 @@ include('bdd.php');
         }
         ?>
         <?php
-
+        include('bdd.php');
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if (isset($_POST['hours_ouverture_lundi_matin']) && isset($_POST['hours_fermeture_lundi_midi'])
                 && isset($_POST['hours_ouverture_lundi_apres']) && isset($_POST['hours_fermeture_lundi_soir']) 
@@ -89,25 +72,8 @@ include('bdd.php');
                 && isset($_POST['hours_ouverture_jeudi_apres']) && isset($_POST['hours_fermeture_jeudi_soir']) 
                 && isset($_POST['hours_ouverture_vendredi_matin']) && isset($_POST['hours_fermeture_vendredi_midi'])
                 && isset($_POST['hours_ouverture_vendredi_apres']) && isset($_POST['hours_fermeture_vendredi_soir']) 
-                && isset($_POST['hours_ouverture_samedi_matin'])) {
-                    if (isset($_POST['ferme_dimanche'])) {
-                        $hours_ouverture_dimanche_matin = null;
-                        $hours_fermeture_dimanche_midi = null;
-                        $hours_ouverture_dimanche_apres = null;
-                        $hours_fermeture_dimanche_soir = null;
-                    } else {
-                        $hours_ouverture_dimanche_matin = $_POST['hours_ouverture_dimanche_matin'] . ':00';
-                        $hours_fermeture_dimanche_midi = $_POST['hours_fermeture_dimanche_midi'] . ':00';
-                        $hours_ouverture_dimanche_apres = $_POST['hours_ouverture_dimanche_apres'] . ':00';
-                        $hours_fermeture_dimanche_soir = $_POST['hours_fermeture_dimanche_soir'] . ':00';
-                    }
-                    if (isset($_POST['ferme_samedi'])) {
-                        $hours_ouverture_samedi_apres = null;
-                        $hours_fermeture_samedi_soir = null;
-                    } else {
-                        $hours_ouverture_samedi_apres = $_POST['hours_ouverture_samedi_apres'] . ':00';
-                        $hours_fermeture_samedi_soir = $_POST['hours_fermeture_samedi_soir'] . ':00';
-                    }
+                && isset($_POST['hours_ouverture_samedi_matin']) && isset($_POST['hours_fermeture_samedi_midi'])) {
+                    
                 $hours_ouverture_lundi_matin = $_POST['hours_ouverture_lundi_matin'] . ':00';
                 $hours_fermeture_lundi_midi = $_POST['hours_fermeture_lundi_midi'] . ':00';
                 $hours_ouverture_lundi_apres = $_POST['hours_ouverture_lundi_apres'] . ':00';
@@ -135,8 +101,6 @@ include('bdd.php');
 
                 $hours_ouverture_samedi_matin = $_POST['hours_ouverture_samedi_matin']. ':00';
                 $hours_fermeture_samedi_midi = $_POST['hours_fermeture_samedi_midi']. ':00';
-                $hours_ouverture_samedi_apres = $_POST['hours_ouverture_samedi_apres']. ':00';
-                $hours_fermeture_samedi_soir = $_POST['hours_fermeture_samedi_soir']. ':00';
                 
 
                 $sql = "UPDATE schedule SET hours_ouverture_lundi_matin = :hours_ouverture_lundi_matin, hours_fermeture_lundi_midi = :hours_fermeture_lundi_midi,
@@ -149,10 +113,7 @@ include('bdd.php');
                                             hours_ouverture_jeudi_apres = :hours_ouverture_jeudi_apres, hours_fermeture_jeudi_soir = :hours_fermeture_jeudi_soir,
                                             hours_ouverture_vendredi_matin = :hours_ouverture_vendredi_matin, hours_fermeture_vendredi_midi = :hours_fermeture_vendredi_midi,
                                             hours_ouverture_vendredi_apres = :hours_ouverture_vendredi_apres, hours_fermeture_vendredi_soir = :hours_fermeture_vendredi_soir,
-                                            hours_ouverture_samedi_matin = :hours_ouverture_samedi_matin, hours_fermeture_samedi_midi = :hours_fermeture_samedi_midi,
-                                            hours_ouverture_samedi_apres = :hours_ouverture_samedi_apres, hours_fermeture_samedi_soir = :hours_fermeture_samedi_soir,
-                                            hours_ouverture_dimanche_matin = :hours_ouverture_dimanche_matin, hours_fermeture_dimanche_midi = :hours_fermeture_dimanche_midi,
-                                            hours_ouverture_dimanche_apres = :hours_ouverture_dimanche_apres, hours_fermeture_dimanche_soir = :hours_fermeture_dimanche_soir";
+                                            hours_ouverture_samedi_matin = :hours_ouverture_samedi_matin, hours_fermeture_samedi_midi = :hours_fermeture_samedi_midi";
                 $stmt = $connect->prepare($sql);
                 $stmt->bindParam(':hours_ouverture_lundi_matin', $hours_ouverture_lundi_matin, PDO::PARAM_STR);
                 $stmt->bindParam(':hours_fermeture_lundi_midi', $hours_fermeture_lundi_midi, PDO::PARAM_STR);
@@ -181,19 +142,14 @@ include('bdd.php');
 
                 $stmt->bindParam(':hours_ouverture_samedi_matin', $hours_ouverture_samedi_matin, PDO::PARAM_STR);
                 $stmt->bindParam(':hours_fermeture_samedi_midi', $hours_fermeture_samedi_midi, PDO::PARAM_STR);
-                $stmt->bindParam(':hours_ouverture_samedi_apres', $hours_ouverture_samedi_apres, PDO::PARAM_STR);
-                $stmt->bindParam(':hours_fermeture_samedi_soir', $hours_fermeture_samedi_soir, PDO::PARAM_STR);
-
-                $stmt->bindParam(':hours_ouverture_dimanche_matin', $hours_ouverture_dimanche_matin, PDO::PARAM_STR);
-                $stmt->bindParam(':hours_fermeture_dimanche_midi', $hours_fermeture_dimanche_midi, PDO::PARAM_STR);
-                $stmt->bindParam(':hours_ouverture_dimanche_apres', $hours_ouverture_dimanche_apres, PDO::PARAM_STR);
-                $stmt->bindParam(':hours_fermeture_dimanche_soir', $hours_fermeture_dimanche_soir, PDO::PARAM_STR);
                 $stmt->execute();
-                echo '<script>alert("Horaires modifiés avec succès!");</script>';
+            
+                echo "<script>alert('Horaires modifiés avec succès')</script>";
             } else {
-                echo '<script>alert("Erreur lors de la modification des horaires!");</script>';
+                echo "<script>alert('Erreur lors de la modification des horaires')</script>";
             }
         }
+        
         ?>
 </body>
 </html>
