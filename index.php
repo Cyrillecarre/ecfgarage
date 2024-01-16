@@ -22,9 +22,7 @@ IFNULL (SUBSTRING(hours_fermeture_vendredi_midi, 1, 5), 'Fermé') AS hours_ferme
 IFNULL (SUBSTRING(hours_ouverture_vendredi_apres, 1, 5), 'Fermé') AS hours_ouverture_vendredi_apres,
 IFNULL (SUBSTRING(hours_fermeture_vendredi_soir, 1, 5), 'Fermé') AS hours_fermeture_vendredi_soir,
 IFNULL (SUBSTRING(hours_ouverture_samedi_matin, 1, 5), 'Fermé') AS hours_ouverture_samedi_matin,
-IFNULL (SUBSTRING(hours_fermeture_samedi_midi, 1, 5), 'Fermé') AS hours_fermeture_samedi_midi,
-IFNULL (SUBSTRING(hours_ouverture_samedi_apres, 1, 5), 'Fermé') AS hours_ouverture_samedi_apres,
-IFNULL (SUBSTRING(hours_fermeture_samedi_soir, 1, 5), 'Fermé') AS hours_fermeture_samedi_soir
+IFNULL (SUBSTRING(hours_fermeture_samedi_midi, 1, 5), 'Fermé') AS hours_fermeture_samedi_midi
  FROM schedule";
 $result = $connect->query($sql);
 if ($result) {
@@ -64,7 +62,7 @@ if ($result) {
                         <li class="navList"><a href="/pages/entretien.html">Entretien</a></li>
                         <li class="navList"><a href="/pages/reparation.html">Réparation</a></li>
                         <li class="navList"><a href="/server/occasion.php">Véhicule Occasion</a></li>
-                        <li class="navList"><a href="/pages/contact.html">Contact</a></li>
+                        <li class="navList"><a href="/server/contact.php">Contact</a></li>
                     </ul>
                 </nav>        
         </div>
@@ -138,37 +136,36 @@ if ($result) {
                     <i class="fa-regular fa-clock iColor"></i>
                     <table>
                         <tr>
-                          <td>Lundi:</td>
-                          <td><?php echo $schedule['hours_ouverture_lundi_matin'] . '/' . $schedule['hours_fermeture_lundi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_lundi_apres']. '/' . $schedule['hours_fermeture_lundi_soir']; ?></td>
+                          <td>Lundi :</td>
+                          <td><?php echo $schedule['hours_ouverture_lundi_matin'] . ' / ' . $schedule['hours_fermeture_lundi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_lundi_apres']. ' / ' . $schedule['hours_fermeture_lundi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Mardi:</td>
-                          <td><?php echo $schedule['hours_ouverture_mardi_matin'] . '/' . $schedule['hours_fermeture_mardi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_mardi_apres']. '/' . $schedule['hours_fermeture_mardi_soir']; ?></td>
+                          <td>Mardi :</td>
+                          <td><?php echo $schedule['hours_ouverture_mardi_matin'] . ' / ' . $schedule['hours_fermeture_mardi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_mardi_apres']. ' / ' . $schedule['hours_fermeture_mardi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Mercredi:</td>
-                          <td><?php echo $schedule['hours_ouverture_mercredi_matin'] . '/' . $schedule['hours_fermeture_mercredi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_mercredi_apres']. '/' . $schedule['hours_fermeture_mercredi_soir']; ?></td>
+                          <td>Mercredi :</td>
+                          <td><?php echo $schedule['hours_ouverture_mercredi_matin'] . ' / ' . $schedule['hours_fermeture_mercredi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_mercredi_apres']. ' / ' . $schedule['hours_fermeture_mercredi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Jeudi:</td>
-                          <td><?php echo $schedule['hours_ouverture_jeudi_matin'] . '/' . $schedule['hours_fermeture_jeudi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_jeudi_apres']. '/' . $schedule['hours_fermeture_jeudi_soir']; ?></td>
+                          <td>Jeudi :</td>
+                          <td><?php echo $schedule['hours_ouverture_jeudi_matin'] . ' / ' . $schedule['hours_fermeture_jeudi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_jeudi_apres']. ' / ' . $schedule['hours_fermeture_jeudi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Vendredi:</td>
-                          <td><?php echo $schedule['hours_ouverture_vendredi_matin'] . '/' . $schedule['hours_fermeture_vendredi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_vendredi_apres']. '/' . $schedule['hours_fermeture_vendredi_soir']; ?></td>
+                          <td>Vendredi :</td>
+                          <td><?php echo $schedule['hours_ouverture_vendredi_matin'] . ' / ' . $schedule['hours_fermeture_vendredi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_vendredi_apres']. ' / ' . $schedule['hours_fermeture_vendredi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Samedi:</td>
-                          <td><?php echo $schedule['hours_ouverture_samedi_matin'] . '/' . $schedule['hours_fermeture_samedi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_samedi_apres']. '/' . $schedule['hours_fermeture_samedi_soir']; ?></td>
+                          <td>Samedi :</td>
+                          <td><?php echo $schedule['hours_ouverture_samedi_matin'] . ' / ' . $schedule['hours_fermeture_samedi_midi']; ?></td>
                         </tr>
                         <tr>
-                          <td>Dimanche:</td>
+                          <td>Dimanche :</td>
                           <td>Fermé</td>
                         </tr>
                       </table>
@@ -184,37 +181,36 @@ if ($result) {
             <h2>Horaires <i class="fa-regular fa-clock"></i></h2>
             <table>
                         <tr>
-                          <td>Lundi:</td>
-                          <td><?php echo $schedule['hours_ouverture_lundi_matin'] . '/' . $schedule['hours_fermeture_lundi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_lundi_apres']. '/' . $schedule['hours_fermeture_lundi_soir']; ?></td>
+                          <td>Lundi :</td>
+                          <td><?php echo $schedule['hours_ouverture_lundi_matin'] . ' / ' . $schedule['hours_fermeture_lundi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_lundi_apres']. ' / ' . $schedule['hours_fermeture_lundi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Mardi:</td>
-                          <td><?php echo $schedule['hours_ouverture_mardi_matin'] . '/' . $schedule['hours_fermeture_mardi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_mardi_apres']. '/' . $schedule['hours_fermeture_mardi_soir']; ?></td>
+                          <td>Mardi :</td>
+                          <td><?php echo $schedule['hours_ouverture_mardi_matin'] . ' / ' . $schedule['hours_fermeture_mardi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_mardi_apres']. ' / ' . $schedule['hours_fermeture_mardi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Mercredi:</td>
-                          <td><?php echo $schedule['hours_ouverture_mercredi_matin'] . '/' . $schedule['hours_fermeture_mercredi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_mercredi_apres']. '/' . $schedule['hours_fermeture_mercredi_soir']; ?></td>
+                          <td>Mercredi :</td>
+                          <td><?php echo $schedule['hours_ouverture_mercredi_matin'] . ' / ' . $schedule['hours_fermeture_mercredi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_mercredi_apres']. ' / ' . $schedule['hours_fermeture_mercredi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Jeudi:</td>
-                          <td><?php echo $schedule['hours_ouverture_jeudi_matin'] . '/' . $schedule['hours_fermeture_jeudi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_jeudi_apres']. '/' . $schedule['hours_fermeture_jeudi_soir']; ?></td>
+                          <td>Jeudi :</td>
+                          <td><?php echo $schedule['hours_ouverture_jeudi_matin'] . ' / ' . $schedule['hours_fermeture_jeudi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_jeudi_apres']. ' / ' . $schedule['hours_fermeture_jeudi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Vendredi:</td>
-                          <td><?php echo $schedule['hours_ouverture_vendredi_matin'] . '/' . $schedule['hours_fermeture_vendredi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_vendredi_apres']. '/' . $schedule['hours_fermeture_vendredi_soir']; ?></td>
+                          <td>Vendredi :</td>
+                          <td><?php echo $schedule['hours_ouverture_vendredi_matin'] . ' / ' . $schedule['hours_fermeture_vendredi_midi']. 
+                          ' - ' . $schedule['hours_ouverture_vendredi_apres']. ' / ' . $schedule['hours_fermeture_vendredi_soir']; ?></td>
                         </tr>
                         <tr>
-                          <td>Samedi:</td>
-                          <td><?php echo $schedule['hours_ouverture_samedi_matin'] . '/' . $schedule['hours_fermeture_samedi_midi']. 
-                          ' - ' . $schedule['hours_ouverture_samedi_apres']. '/' . $schedule['hours_fermeture_samedi_soir']; ?></td>
+                          <td>Samedi :</td>
+                          <td><?php echo $schedule['hours_ouverture_samedi_matin'] . ' / ' . $schedule['hours_fermeture_samedi_midi']; ?></td>
                         </tr>
                         <tr>
-                          <td>Dimanche:</td>
+                          <td>Dimanche :</td>
                           <td>Fermé</td>
                         </tr>
                       </table>
