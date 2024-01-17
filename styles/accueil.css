@@ -154,6 +154,37 @@ a {
     display: grid;   
 }
 
+.form {
+    flex-direction: column;
+    padding-top: 1rem;
+    height: auto;
+    margin: 0 auto; 
+}
+
+.formContent {
+    display: grid;
+    grid-template-columns: 8rem 13rem;
+    flex-direction: column;
+    width: 22rem;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px;
+    gap: 5px;
+    border: 3px solid #D92332;
+    background-color: #d9777f88;
+    border-radius: 1rem;
+}
+
+.avisGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 70%;
+
+}
+
 .mainOuSommeNous {
     margin-bottom: 10rem;
 }

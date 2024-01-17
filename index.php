@@ -122,8 +122,31 @@ if ($result) {
     </main>
     <main>
         <h1 class="titreAccueil">Avis des consommateurs</h1>
-    </main>
+            <div class="avisGrid">
 
+                <?php
+                    $sql = "SELECT * FROM review";
+                    $result = $connect->query($sql);
+                    
+                    if ($result && $result->rowCount() > 0) {
+                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                            echo '<div class="form">';
+                            echo '<div class="formContent">';
+                            echo '<p class="input">' . $row['name'] . '</p>';
+                            $dateFormatee = date('d / m / Y', strtotime($row['date']));
+                            echo '<p class="input">' . $dateFormatee . '</p>';
+                            echo '<p class="label">Note : </p>';
+                            echo '<p class="input">' . $row['note'] . ' &#9733;' . '</p>';
+                            echo '<p class="label">Avis : </p>';
+                            echo '<p class="inputAvis">' . $row['content'] . '</p>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    }
+                    ?>
+        </div>
+    </main>
+    
     <main class="mainOuSommeNous">
         <h1 class="titreAccueil">OU SOMMES-NOUS ?</h1>
         <div class="ouSommeNous">
