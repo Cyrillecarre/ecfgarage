@@ -1,0 +1,185 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Rajdhani;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.header {
+    display: flex;
+    height: 10rem;
+    width: 100%;
+    text-align: center;
+    background-color: #d9777f89;
+    border-bottom: 2px solid #D02332;
+}
+
+.headerNav {
+    display: grid;
+    grid-template-rows: 30% 70%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.header2 {
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+    width: 100%;    
+    justify-content: flex-end;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+}
+
+.header2 a {
+    color: #D02332 ;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.navListe {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+}
+
+.logo {
+    width: 30%;
+    padding: 0%;
+    margin: 0%;
+}
+
+.avis {
+    background-image: url("/image_ecf/experience.jpg");
+    background-size: cover;
+    height: 70vh;
+    background-position: center 60%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.avis h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2rem;
+    margin: 0;
+    color: #D92332;
+}
+
+.form {
+    flex-direction: column;
+    padding-top: 2rem;
+    height: auto;
+    margin: 0 auto; 
+}
+
+.formContent {
+    display: grid;
+    grid-template-columns: 15rem 18rem; ;
+    flex-direction: column;
+    align-items: space-around;
+    width: 34rem;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px;
+    gap: 5px;
+    border: 3px solid #D92332;
+    background-color: #d9777f88;
+    border-radius: 1rem;
+}
+
+.etoile input {
+    display: none;
+}
+
+.etoile {
+    display: nnone;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #D92332;
+}
+
+.etoile input:checked + label {
+    color: gold;
+}
+.inputClic +label {
+    color: gold;
+}
+
+.label {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 1.6rem;
+    margin: 0.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.input {
+    height: 1.9rem;
+    margin: 0.5rem;
+    border: 1px solid #D92332;
+    border-radius: 0.5rem;
+}
+
+.inputText {
+    height: 6rem;
+    margin: 0.5rem;
+    border: 1px solid #D92332;
+    border-radius: 0.5rem;
+}
+
+
+  .submit {
+    grid-column: span 2;
+    justify-self: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 2.5rem;
+    width: 14rem;
+    font-size: 1.1rem;
+    border: 2px solid #D92332;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+
+
+.footer {
+    display: flex;
+    background-image: url("/image_ecf/footer.jpg");
+    width: 100%;
+    height: 25rem;
+    color: white;
+    justify-content: space-evenly;
+    padding-top: 5rem;
+}
+
+.footer table {
+    color: white;
+}

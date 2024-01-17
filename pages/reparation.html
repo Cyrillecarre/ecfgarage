@@ -24,6 +24,7 @@
                         <li><a href="/pages/reparation.html">Réparation</a></li>
                         <li><a href="/server/occasion.php">Véhicule Occasion</a></li>
                         <li><a href="/server/contact.php">Contact</a></li>
+                        <li><a href="/server/review.php">Avis</a></li>
                     </ul>
                 </nav>        
         </div>

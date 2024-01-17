@@ -63,6 +63,7 @@ if ($result) {
                         <li class="navList"><a href="/pages/reparation.html">Réparation</a></li>
                         <li class="navList"><a href="/server/occasion.php">Véhicule Occasion</a></li>
                         <li class="navList"><a href="/server/contact.php">Contact</a></li>
+                        <li class="navlist"><a href="/server/review.php">Avis</a></li>
                     </ul>
                 </nav>        
         </div>
@@ -118,6 +119,9 @@ if ($result) {
                     <h2>Reprise</h2>
                     <p>Nous reprenons votre véhicule au meilleur prix. Contactez-nous pour en savoir plus.</p>
             </div>
+    </main>
+    <main>
+        <h1 class="titreAccueil">Avis des consommateurs</h1>
     </main>
 
     <main class="mainOuSommeNous">
