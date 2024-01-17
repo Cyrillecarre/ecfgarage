@@ -91,7 +91,7 @@ if ($result) {
                     <label for="etoile5">&#9733;5</label>
                 </div>
                 <div>
-                    <label class="label" for="name">Nom :</label>
+                    <label class="label" for="name">Prénom :</label>
                 </div>
                 <div>
                     <input class="input" type="text" id="name" name="name" placeholder="Votre nom" required>
