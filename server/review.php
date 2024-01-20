@@ -69,7 +69,7 @@ if ($result) {
                 </nav>        
         </div>
     </header>
-    <main>
+    <main class="mainAvis">
         <div class="avis">
             <h1>Avis des consommateurs</h1>
         </div>
