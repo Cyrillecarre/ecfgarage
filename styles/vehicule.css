@@ -75,6 +75,28 @@
     cursor: pointer;
 }
 
+.option {
+    grid-column: span 2;
+    justify-self: center;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 2.5rem;
+    width: 25rem;
+    font-size: 1.1rem;
+    border: 2px solid #D92332;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.optionAdditionnel {
+    display: none;
+}
+
+.display-block {
+    display: block !important;
+}
+
 .submitRetour {
     display: flex;
     justify-content: center;

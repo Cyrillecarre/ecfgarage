@@ -71,6 +71,10 @@ a {
     margin: 0%;
 }
 
+.mainAvis {
+    padding-bottom: 5rem;
+}
+
 .avis {
     background-image: url("/image_ecf/experience.jpg");
     background-size: cover;
