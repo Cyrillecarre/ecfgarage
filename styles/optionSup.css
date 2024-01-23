@@ -1,0 +1,143 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Rajdhani;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.header {
+    display: flex;
+    height: 10rem;
+    width: 100%;
+    text-align: center;
+    background-color: #d9777f89;
+    border-bottom: 2px solid #D02332;
+}
+
+.headerNav {
+    display: grid;
+    grid-template-rows: 30% 70%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.header2 {
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+    width: 100%;    
+    justify-content: flex-end;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+}
+
+.header2 a {
+    color: #D02332 ;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.navListe {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 30%;
+    padding: 0%;
+    margin: 0%;
+} 
+
+.vehiculeContener {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.titreVehicule {
+    display: flex;
+    font-size: 3rem;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.vehicule {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    height: auto;
+}
+
+.vehiculeDescription {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+}
+
+.vehiculeOptions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.optionImage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    height: auto;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.optionText{
+    grid-column: span 2;
+    font-size: 2rem;
+    height: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.footer {
+    display: flex;
+    background-image: url("/image_ecf/footer.jpg");
+    width: 100%;
+    height: 25rem;
+    color: white;
+    justify-content: space-evenly;
+    padding-top: 5rem;
+}
+
+.footer table {
+    color: white;
+}

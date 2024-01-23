@@ -30,6 +30,7 @@
                 $html .= "<p class='vehiculeText'>Puissance fiscale: " . $row["power"] . "</p>";
                 $html .= "<p class='vehiculeText'>Nombre de portes: " . $row["gate"] . "</p>";
                 $html .= "<p class='vehiculeTextPrix'>Prix: " . $row["price"] . " €" . "</p>";
+                $html .= "<a href='/server/optionSup.php?id_car={$row["id_car"]}' class='vehiculeLink'>Voir plus d'option?</a>";
                 $html .= "</div>";
                 $html .= "</div>";
             }

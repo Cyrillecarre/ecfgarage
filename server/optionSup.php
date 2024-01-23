@@ -36,6 +36,9 @@ if ($result) {
 }
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,7 +46,7 @@ if ($result) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/styles/occasion.css">
+    <link rel="stylesheet" href="/styles/optionSup.css">
     <title>Véhicule</title>
 </head>
 <body>
@@ -68,60 +71,70 @@ if ($result) {
                 </nav>        
         </div>
     </header>
-    <main class="mainOccasion">
-        <div class="occasionAccueil">
-            <h1>Liste des véhicules</h1>
-        </div>
-        <h1 class="titreFiltre">Ajustez vos critères de recherches</h1>
-        <form class="filtre" id="filtreForm">
-            <div class="filtreContent">
-                <label class="label" for="rangeInputPrix">Prix :</label><br>
-                <input type="range" name="rangeInputPrix" id="rangeInputPrix" min="0" max="40000" value="50%">
-                <p>Prix maximum : <span id="currentValuePrix">20000</span><span> €</span></p>   
-            </div>
-            <div class="filtreContent">
-                <label class="label" for="rangeInputAnnee">Année :</label><br>
-                <input type="range" name="rangeInputAnnee" id="rangeInputAnnee" min="2004" max="2024" value="50%">
-                <p>Année minimum: <span id="currentValueAnnee">2014</span></p>    
-            </div>
-            <div class="filtreContent">
-                <label class="label" for="rangeInputKm">Kilométrage :</label><br>
-                <input type="range" name="rangeInputKm" id="rangeInputKm" min="0" max="300000" value="50%">
-                <p>Kilométrage maximum : <span id="currentValueKm">150000</span><span> km</span></p>    
-            </div>
-            <div></div>
-            <div>
-                <input type="submit" class="submit" name="submit" id="filtreSubmit" value="Afficher les véhicules"></input>
-            </div>
-        </form>
-        <div class="vehiculeContener">
-            <?php
-        if ($result !== false && $result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) { 
-                echo "<div class='vehicule'>";
-                echo "<h2 class='vehiculeName'>" . $row["name"] . "</h2>";
-                $image_path = $row["image_path"];
-                echo '<img class="imageContent" src="uploads/' . basename($image_path) . '" alt="Image du véhicule">';
-                echo "<div class='vehiculeDescription'>";
-                echo "<p class='vehiculeTextAnnee'>Année: " . $row["date"] ."</p>";
-                echo "<p class='vehiculeTextKm'>Kilométrage: " . $row["kilometer"] . " km" . "</p>";
-                echo "<p class='vehiculeText'>Carburant: " . $row["energy"] . "</p>";
-                echo "<p class='vehiculeText'>Boite de vitesse: " . $row["transmission"] . "</p>";
-                echo "<p class='vehiculeText'>Puissance fiscale: " . $row["power"] . "</p>";
-                echo "<p class='vehiculeText'>Nombre de portes: " . $row["gate"] . "</p>";
-                echo "<p class='vehiculeTextPrix'>Prix: " . $row["price"] . " €" . "</p>";
-                echo "<a href='/server/optionSup.php?id_car={$row["id"]}' class='vehiculeLink'>Voir plus</a>";
-                echo "</div>";
-                echo "</div>";
+    <div class="vehiculeContener">
+    <?php
+
+if (isset($_GET['id_car'])) {
+    $id_car = $_GET['id_car'];
+
+    $sql_car = "SELECT * FROM car WHERE id_car = :id_car";
+    $stmt_car = $connect->prepare($sql_car);
+    $stmt_car->bindParam(':id_car', $id_car, PDO::PARAM_INT);
+    $stmt_car->execute();
+
+    $sql_options = "SELECT * FROM options WHERE car_id = :car_id";
+    $stmt_options = $connect->prepare($sql_options);
+    $stmt_options->bindParam(':car_id', $id_car, PDO::PARAM_INT);
+    $stmt_options->execute();
+
+    if ($stmt_car->rowCount() > 0) {
+        $row_car = $stmt_car->fetch(PDO::FETCH_ASSOC);
+
+        echo "<div class='titreVehicule'>";
+        echo "<h2>{$row_car["name"]}</h2>";
+        echo "</div>";
+        echo "<div class='vehicule'>";
+        echo "<img class='imageContent' src='uploads/" . basename($row_car["image_path"]) . "' alt='Image du véhicule'>";
+        echo "<div class='vehiculeDescription'>";
+        echo "<p class='vehiculeTextAnnee'>Année: {$row_car["date"]}</p>";
+        echo "<p class='vehiculeTextKm'>Kilométrage: {$row_car["kilometer"]} km</p>";
+        echo "<p class='vehiculeText'>Carburant: {$row_car["energy"]}</p>";
+        echo "<p class='vehiculeText'>Boite de vitesse: {$row_car["transmission"]}</p>";
+        echo "<p class='vehiculeText'>Puissance fiscale: {$row_car["power"]}</p>";
+        echo "<p class='vehiculeText'>Nombre de portes: {$row_car["gate"]}</p>";
+        echo "<p class='vehiculeTextPrix'>Prix: {$row_car["price"]} €</p>";
+        echo "</div>";
+        echo "</div>";
+        echo "<div class='titreVehicule'>";
+        echo "<h2>Options</h2>";
+        echo "</div>";
+        echo "<div class='vehiculeOptions'>";
+        if ($stmt_options->rowCount() > 0) {
+            while ($row_options = $stmt_options->fetch(PDO::FETCH_ASSOC)) {
+                if ($row_options["data_type"] === "photo") {
+                    echo "<div class='optionImage'>";
+                    echo "<img src='uploads/{$row_options["data_content"]}' alt='Option'>";
+                    echo "</div>";
+                } elseif ($row_options["data_type"] === "option") {
+                    echo "<div class='optionText'>";
+                    echo "<p>{$row_options["data_content"]}</p>";
+                    echo "</div>";
+                }
             }
-        } else {
-            echo "Aucun véhicule trouvé.";
-        }
-        ?>
-        
-        
+            echo "</div>";
+
+    } else {
+        echo "<p>Véhicule non trouvé.</p>";
+    }
+    }
+
+} else {
+    echo "<p>Identifiant du véhicule non spécifié.</p>";
+}
+?>
+
     </div>
-</main>
+
     <footer class="footer">
         <div>
             <h2>Horaires <i class="fa-regular fa-clock"></i></h2>
@@ -174,6 +187,5 @@ if ($result) {
         </p>
         </div>
     </footer>
-    <script src="/scripts/occasion.js"></script>
 </body>
 </html>

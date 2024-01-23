@@ -75,5 +75,3 @@ class Filtre {
 
 const filtre = new Filtre();
 
-
-
