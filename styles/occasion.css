@@ -10,6 +10,19 @@ a {
     color: black;
 }
 
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #D02332;
+    margin: 6px 0;
+  }
+
 .header {
     display: flex;
     height: 10rem;
@@ -276,6 +289,7 @@ a {
     background-color: white;
 }
 
+
 .footer {
     display: flex;
     background-image: url("/image_ecf/footer.jpg");
@@ -288,4 +302,226 @@ a {
 
 .footer table {
     color: white;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Rajdhani;
+        overflow-x: hidden;
+    }
+  
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        text-align: center;
+        background-color: #d9777f89;
+        border-bottom: 2px solid #D02332;
+    }
+
+    .headerNav {
+        display: flex;
+        flex-direction: column;
+        width: 80%;    
+        align-items: center;
+        background-color: white;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .header2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;    
+        justify-content: flex-end;
+        align-items: center;
+        background-color: white;
+        text-align: center;
+    }
+
+    .logo {
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    
+    .navListe {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        background-color: #d9777f89;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .navListe.show {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .navList li {
+        display: flex;
+    }
+    
+    .navList a {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+    }
+
+
+.occasionAccueil {
+    background-image: url("/image_ecf/occasion.jpg");
+    background-size: cover;
+    height: 30vh;
+    background-position: center top;
+    padding: 0;
+    margin: 0;
+}
+
+.mainOccasion {
+    padding-bottom: 5rem;
+}
+
+.occasionAccueil h1 {
+    color: #D02332;
+    font-size: 4rem;
+    text-align: center;
+    padding-top: 5rem;
+    margin: 0;
+}
+
+.titreFiltre {
+    font-size: 3rem;
+    color: black;
+    margin: 0;
+    padding: 5rem;
+    text-align: center;
+    max-width: 65%;
+    margin: 0 auto;
+}
+
+.filtre {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    gap: 10px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+
+.label {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.filtreContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #D92332;
+    background-color: #d9777f88;
+    border-radius: 1rem;
+
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+    border: 2px solid #D92332;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.occasion1 {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.vehiculeContener {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+.vehiculeLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+    border: 2px solid #D92332;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 3px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url("/image_ecf/footer.jpg");
+        width: 100%;
+        height: auto;
+        color: white;
+        justify-content: space-evenly;
+        padding-top: 5rem;
+    }
+
 }

@@ -55,7 +55,11 @@ if ($result) {
                 <p>TEL: 06 71 06 19 19</p>
                 <p>Mail: contact@gmail.com</p>
             </div>   
-            
+            <div class="burger-menu" id="burger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div> 
                 <nav class="nav">
                     <ul class="navListe">
                         <li><a href="/index.php">Accueil</a></li>

@@ -20,7 +20,7 @@ session_start();
                 <nav>
                     <ul class="priveLi">
                         <li><a href="vehicule.php">Véhicules</a></li>
-                        <li><a href="userAdd.php">Employés</a></li>
+                        <li><a href="userAdd.php">Employés ou Admin</a></li>
                         <li><a href="schedule.php">Horaires</a></li>
                         <li><a href="valid_review.php">Avis</a></li>
                     </ul>

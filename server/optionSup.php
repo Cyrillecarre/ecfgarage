@@ -58,7 +58,11 @@ if ($result) {
                 <p>TEL: 06 71 06 19 19</p>
                 <p>Mail: contact@gmail.com</p>
             </div>   
-            
+            <div class="burger-menu" id="burger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div> 
                 <nav class="nav">
                     <ul class="navListe">
                         <li><a href="/index.php">Accueil</a></li>
@@ -72,6 +76,7 @@ if ($result) {
         </div>
     </header>
     <div class="vehiculeContener">
+
     <?php
 
 if (isset($_GET['id_car'])) {
@@ -133,7 +138,13 @@ if (isset($_GET['id_car'])) {
 }
 ?>
 
-    </div>
+<aside>
+    <h1>Contactez-nous pour ce véhicule</h1>
+    <a class="submit" href='/server/contact.php?id_car=<?php echo urlencode($id_car); ?>&name=<?php echo urlencode($row_car["name"]); ?>
+                            &date=<?php echo urlencode($row_car["date"]); ?>&kilometer=<?php echo urlencode($row_car["kilometer"]); ?>'>Cliquez ici !</a>
+</aside>
+</div>
+
 
     <footer class="footer">
         <div>
@@ -187,5 +198,6 @@ if (isset($_GET['id_car'])) {
         </p>
         </div>
     </footer>
+    <script src="/scripts/reparation.js"></script>
 </body>
 </html>

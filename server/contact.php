@@ -85,6 +85,25 @@ if ($result) {
         </div>
         <?php
 
+        if (isset($_GET['id_car'])) {
+            $id_car = $_GET['id_car'];
+            $car_name = $_GET['name'];
+            $car_date = $_GET['date'];
+            $car_kilometer = $_GET['kilometer'];
+
+            $message = "Bonjour,\n\nJe suis intéressé par le véhicule suivant :\n";
+            $message .= "Nom: {$car_name}\n";
+            $message .= "Année: {$car_date}\n";
+            $message .= "Kilométrage: {$car_kilometer} km\n";
+
+            
+        } else {
+            echo "<p>Identifiant du véhicule non spécifié.</p>";
+}
+?>
+
+        <?php
+
             use PHPMailer\PHPMailer\PHPMailer;
             use PHPMailer\PHPMailer\Exception;
             require 'vendor/autoload.php';

@@ -10,6 +10,20 @@ a {
     color: black;
 }
 
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #D02332;
+    margin: 6px 0;
+  }
+  
+
 .header {
     display: flex;
     height: 10rem;
@@ -235,4 +249,240 @@ a {
 
 .footer table {
     color: white;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Rajdhani;
+        overflow-x: hidden;
+    }
+  
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        text-align: center;
+        background-color: #d9777f89;
+        border-bottom: 2px solid #D02332;
+    }
+
+    .headerNav {
+        display: flex;
+        flex-direction: column;
+        width: 80%;    
+        align-items: center;
+        background-color: white;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .header2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;    
+        justify-content: flex-end;
+        align-items: center;
+        background-color: white;
+        text-align: center;
+    }
+
+    .logo {
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    
+    .navListe {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        background-color: #d9777f89;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .navListe.show {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .navList li {
+        display: flex;
+    }
+    
+    .navList a {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .accueil {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .mainAccueil {
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
+        margin: 0 auto;
+    }
+
+
+.titreSpan {
+    display: flex;
+    color: #D02332;
+    font-size: 4rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.accueil {
+    display: flex;
+    width: 100%;
+}
+
+.mainAccueil {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    width: 100%;
+    align-items: center;
+}
+
+.titreAccueil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    font-size: 2rem;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.article {
+    display: none;
+}
+
+.aPropos {
+    display: none;
+}
+
+.achat {
+    display: none;
+}
+
+.form {
+    flex-direction: column;
+    padding-top: 1rem;
+    height: auto;
+    margin: 0 auto; 
+}
+
+.formContent {
+    display: grid;
+    grid-template-columns: 8rem 13rem;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    gap: 5px;
+    border: 3px solid #D92332;
+    background-color: #d9777f88;
+    border-radius: 1rem;
+}
+
+.avisGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
+
+}
+
+.mainOuSommeNous {
+    margin-bottom: 10rem;
+}
+
+.ouSommeNous {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ouSommeNousAdresse {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.ouSommeNousContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    align-items: center;
+    gap: 3rem
+}
+
+.iColor {
+    color: #D02332;
+    font-size: 1.5rem;
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9777f89;
+    width: 90%;
+    height: 20rem;
+    margin: 0 auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/image_ecf/footer.jpg");
+    width: 100%;
+    height: auto;
+    color: white;
+    justify-content: space-evenly;
+    padding-top: 5rem;
+}
+
+.footer table {
+    color: white;
+}
 }
