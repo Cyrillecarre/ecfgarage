@@ -80,3 +80,58 @@
     height: auto;
     margin: 0 auto; 
 }
+
+@media only screen and (max-width: 768px) {
+
+
+    .titrePrive {
+        font-size: 2.3rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1em;
+        color: #D92332;
+    }
+    
+    .titreM {
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1em;
+        color: #D94350;
+    }
+    
+    .priveContent {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        width: 30vh;
+        height: auto;
+        margin: 0 auto;
+        border: 3px solid #D02332;
+        border-radius: 0.5rem;
+        background-color: #d9777f89;
+    }
+    
+    .priveLi {
+        list-style: none;
+        text-decoration: none;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .priveLi li a {
+        display: flex;
+        margin: 0.5em;
+        text-align: center;
+        justify-content: center;
+        text-decoration: none;
+        color: black;
+        border: 1px solid #D02332;
+        border-radius: 0.5rem;
+        background-color: #d9777f89;
+        width: 13rem;
+    }
+}

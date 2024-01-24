@@ -77,3 +77,44 @@
     text-decoration: none;
     color: black;
 }
+
+@media only screen and (max-width: 768px) {
+
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    width: 35vh;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px;
+    gap: 5px;
+    border: 3px solid #D92332;
+    background-color: #d9777f88;
+    border-radius: 1rem;
+}
+
+.label {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 1.3rem;
+    margin: 0.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.submit {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 2.5rem;
+    width: 14rem;
+    font-size: 1.1rem;
+    border: 2px solid #D92332;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+}
