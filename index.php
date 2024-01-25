@@ -98,6 +98,32 @@ if ($result) {
                     </p>
                 </article>
             </div>
+        </div>
+    </main>
+        <div>
+            <h2 class="titreAccueil">Nos prestations</h2>
+            <div>
+                <?php
+                    $sql = "SELECT * FROM prestations";
+                    $result = $connect->query($sql);
+                    if ($result) {
+                        if ($result->rowCount() > 0) {
+                            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                echo '<div class="prestation">';
+                                echo '<h2 class="prestationTitre"> ' . $row['category'] . '</h2>';
+                                echo '<p class="prestationContent">' . $row['description'] . '</p>';
+                                echo '</div>';
+                            }
+                        } else {
+                            echo "Aucune prestations en base de donnée.";
+                        }
+                    } else {
+                        echo "Erreur lors de l'exécution de la requête : " . $connect->errorInfo()[2];
+                    }
+                ?>
+            </div>
+        </div>
+        <img class="imageAccueil" src="/image_ecf/accueil.jpg" alt="accueil">
             <div class="aPropos">
                 <h2 class="titreAccueil">à propos de <br><span class="titreSpan">GARAGE V.PARROT</span></h2>
                 <p>Garage V.PARROT vend des voitures d’occasion reconditionné mais également des véhicules neufs de toutes marques jusqu’à -40%. 
@@ -105,8 +131,6 @@ if ($result) {
                     Vous pouvez dès à présent prendre rendez-vous pour essayer votre future voiture.
                 </p>
             </div>
-        </div>
-    </main>
     <main class="achat">
         <div class="achatImg">
             <img src="/image_ecf/accueilachat.png" alt="">
