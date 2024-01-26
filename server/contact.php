@@ -101,9 +101,7 @@ if ($result) {
             $message .= "Kilométrage: {$car_kilometer} km\n";
 
             
-        } else {
-            echo "<p>Identifiant du véhicule non spécifié.</p>";
-}
+        }
 ?>
 
         <?php

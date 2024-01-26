@@ -340,3 +340,20 @@ a {
         padding-top: 5rem;
     }
 }
+@media only screen and (min-width: 768px) and (max-width: 1180px) and (orientation: landscape) {
+    .vehiculeOptions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .optionText{
+        font-size: 2rem;
+        height: auto;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+}

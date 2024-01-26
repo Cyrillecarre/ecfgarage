@@ -102,14 +102,6 @@ a {
     font-size: 4rem;
 }
 
-.imageAccueil {
-    display: block;
-    width: 100%;
-    min-width: 100%;
-    height: auto;
-    z-index: -1;
-}
-
 .accueil {
     display: flex;
     width: 100%;
@@ -144,6 +136,30 @@ a {
     gap: 1rem;
     border: 1px solid #D02332;
     margin: 0 auto;
+}
+
+.formPrestation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #D02332;
+    background-color: #d9777f89;
+}
+
+.imageContainer {
+    overflow: hidden;
+    height: 70vh;
+    display: flex;
+    align-items: flex-end; 
+}
+
+.imageAccueil {
+    width: 100%;
+    height: auto;
 }
 
 .aPropos {
@@ -211,6 +227,15 @@ a {
     margin: 0 auto;
     padding: 2rem;
     width: 70%;
+    margin-bottom: 1.5rem;
+}
+
+.hr {
+    display: flex;
+    width: 40%;
+    height: 0.5rem;
+    background-color: #D02332;
+    margin: 0 auto;
 
 }
 
@@ -500,4 +525,35 @@ a {
 .footer table {
     color: white;
 }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1180px) and (orientation: landscape) {
+    .avisGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 0 auto;
+        padding: 2rem;
+        width: 70%;
+        margin-bottom: 1.5rem;
+    }
+
+    .ouSommeNous {
+        display: flex;
+        width: 75%;
+        margin: 0 auto;
+    }
+    
+    .ouSommeNousAdresse {
+        display: grid;
+        grid-template-rows: 25% 25% 50%;
+    }
+    
+    .ouSommeNousContent {
+        display: flex;
+        flex-direction: row;
+        justify-content: normal;
+        align-items: center;
+        gap: 2rem
+    }
 }

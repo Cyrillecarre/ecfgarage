@@ -1,4 +1,4 @@
--- Active: 1704804554217@@127.0.0.1@3306
+
 
 <?php
 session_start();
@@ -14,7 +14,7 @@ $dotenv->load();
 
 try {
     $connect = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpassword);
-    echo "Connexion à la base de données réussie";
+   // echo "Connexion à la base de données réussie";
 }
 catch (PDOException $e) {
     echo "Erreur de connexion à la base de donnée". $e->getMessage();

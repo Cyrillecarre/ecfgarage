@@ -100,11 +100,12 @@ if ($result) {
             </div>
         </div>
     </main>
+    <hr class="hr">
         <div>
             <h2 class="titreAccueil">Nos prestations</h2>
-            <div>
+            <div class="formPrestation">
                 <?php
-                    $sql = "SELECT * FROM prestations";
+                    $sql = "SELECT * FROM service";
                     $result = $connect->query($sql);
                     if ($result) {
                         if ($result->rowCount() > 0) {
@@ -123,7 +124,10 @@ if ($result) {
                 ?>
             </div>
         </div>
+        <div class="imageContainer">
         <img class="imageAccueil" src="/image_ecf/accueil.jpg" alt="accueil">
+        </div>
+        <hr class="hr">
             <div class="aPropos">
                 <h2 class="titreAccueil">à propos de <br><span class="titreSpan">GARAGE V.PARROT</span></h2>
                 <p>Garage V.PARROT vend des voitures d’occasion reconditionné mais également des véhicules neufs de toutes marques jusqu’à -40%. 
@@ -149,6 +153,7 @@ if ($result) {
                     <p>Nous reprenons votre véhicule au meilleur prix. Contactez-nous pour en savoir plus.</p>
             </div>
     </main>
+    <hr class="hr">
     <main>
         <h1 class="titreAccueil">Avis des consommateurs</h1>
             <div class="avisGrid">
@@ -175,7 +180,7 @@ if ($result) {
                     ?>
         </div>
     </main>
-    
+    <hr class="hr">
     <main class="mainOuSommeNous">
         <h1 class="titreAccueil">OU SOMMES-NOUS ?</h1>
         <div class="ouSommeNous">

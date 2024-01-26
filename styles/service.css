@@ -10,6 +10,7 @@
 .formContent {
     display: grid;
     grid-template-columns: 14rem 18rem;
+    justify-content: center;
     flex-direction: column;
     width: 34rem;
     height: auto;
@@ -56,6 +57,7 @@
     margin: 0 auto;
     height: 2.5rem;
     width: 14rem;
+    margin-top: 1rem;
     font-size: 1.4rem;
     border: 2px solid #D92332;
     border-radius: 0.5rem;
