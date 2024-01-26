@@ -340,13 +340,14 @@ a {
         padding-top: 5rem;
     }
 }
-@media only screen and (min-width: 768px) and (max-width: 1180px) and (orientation: landscape) {
+@media only screen and (min-width: 768px) and (max-width: 1400px) and (orientation: landscape) {
     .vehiculeOptions {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        width: 80%;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
     
     .optionText{
