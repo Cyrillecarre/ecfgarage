@@ -1,4 +1,5 @@
 <?php
+//affichage dynamique des horaires//
 include('bdd.php'); 
 $sql = "SELECT admin_id,
 IFNULL (SUBSTRING(hours_ouverture_lundi_matin, 1, 5), 'Fermé') AS hours_ouverture_lundi_matin,
@@ -66,8 +67,8 @@ if ($result) {
                 <nav class="nav">
                     <ul class="navListe">
                         <li><a href="/index.php">Accueil</a></li>
-                        <li><a href="/pages/entretien.html">Entretien</a></li>
-                        <li><a href="/pages/reparation.html">Réparation</a></li>
+                        <li><a href="/server/entretien.php">Entretien</a></li>
+                        <li><a href="/server/reparation.php">Réparation</a></li>
                         <li><a href="/server/occasion.php">Véhicule Occasion</a></li>
                         <li><a href="/server/contact.php">Contact</a></li>
                         <li><a href="/server/review.php">Avis</a></li>
@@ -78,7 +79,7 @@ if ($result) {
     <div class="vehiculeContener">
 
     <?php
-
+    //recupère les information depuis la table options//
 if (isset($_GET['id_car'])) {
     $id_car = $_GET['id_car'];
 
@@ -92,6 +93,7 @@ if (isset($_GET['id_car'])) {
     $stmt_options->bindParam(':car_id', $id_car, PDO::PARAM_INT);
     $stmt_options->execute();
 
+    //affiche les options du vehicule depuis la table options + car//
     if ($stmt_car->rowCount() > 0) {
         $row_car = $stmt_car->fetch(PDO::FETCH_ASSOC);
 

@@ -1,4 +1,5 @@
 <?php
+//affichage dynamique des horaires//
 include('bdd.php');  
 $sql = "SELECT admin_id,
 IFNULL (SUBSTRING(hours_ouverture_lundi_matin, 1, 5), 'Fermé') AS hours_ouverture_lundi_matin,
@@ -65,8 +66,8 @@ if ($result) {
                 <nav class="nav">
                     <ul class="navListe">
                         <li class="navList"><a href="/index.php">Accueil</a></li>
-                        <li class="navList"><a href="/pages/entretien.html">Entretien</a></li>
-                        <li class="navList"><a href="/pages/reparation.html">Réparation</a></li>
+                        <li class="navList"><a href="/server/entretien.php">Entretien</a></li>
+                        <li class="navList"><a href="/server/reparation.php">Réparation</a></li>
                         <li class="navList"><a href="/server/occasion.php">Véhicule Occasion</a></li>
                         <li class="navList"><a href="/server/contact.php">Contact</a></li>
                         <li class="navList"><a href="/server/review.php">Avis</a></li>
@@ -118,6 +119,7 @@ if ($result) {
             </div>
                 
             <?php 
+            //enregistrement en table reviewValid//
             if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 if (isset($_POST['note']) && isset($_POST['name']) && isset($_POST['date']) && isset($_POST['content'])){
                     $note = filter_input(INPUT_POST, 'note' , FILTER_SANITIZE_FULL_SPECIAL_CHARS);

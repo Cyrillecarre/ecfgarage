@@ -1,3 +1,4 @@
+// api de localisation
 var map = L.map('map').setView([43.6047, 1.4442], 10);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -9,7 +10,7 @@ var map = L.map('map').setView([43.6047, 1.4442], 10);
       .openPopup();
 
 
-
+    // action du burger menu
       document.addEventListener('DOMContentLoaded', function() {
         const burgerMenu = document.getElementById('burger-menu');
         const navList = document.querySelectorAll('.navListe');

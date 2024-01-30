@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/userAdd.css">
-    <title>Document</title>
+    <title>Gestion des profils</title>
 </head>
 <body class="body">
     <main class="userAdd">
@@ -57,7 +57,7 @@
         </aside>
     </main>
     <?php
-    //ajout d'un employé//
+    //ajout d'un employé en table user//
     include('bdd.php');
     if ($_SERVER['REQUEST_METHOD'] === "POST") {
         if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -84,7 +84,7 @@
     ?>
 
 <?php
-    //ajouter un admin//
+    //ajouter un admin en table admin//
     include('bdd.php');
     if ($_SERVER['REQUEST_METHOD'] === "POST") {
         if (isset($_POST['emailAdmin']) && isset($_POST['passwordAdmin'])) {
@@ -111,7 +111,7 @@
     ?>
 
     <?php
-    //suppression d'un employé//
+    //suppression d'un employé de user//
     if (isset($_POST['submitDelete'])) {
         $deleteEmail = $_POST['deleteEmail'];
 
@@ -129,7 +129,7 @@
     ?>
 
 <?php
-    //suppression admin//
+    //suppression admin de table admin//
     if (isset($_POST['submitDeleteAdmin'])) {
         $deleteEmailAdmin = $_POST['deleteEmailAdmin'];
 
@@ -146,6 +146,7 @@
     ?>
 
     <?php
+    //bouton retour//
 if (isset($_POST['logout'])) {
     session_destroy();
     header("Location: /server/connection.php");

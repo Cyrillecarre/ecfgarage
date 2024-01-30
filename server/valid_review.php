@@ -11,6 +11,7 @@
         <h1 class="titreReview">Valider les commentaires</h1>
                 <?php
                     include 'bdd.php';
+                    //affichage d'un commentaire utilisateur en attente de validation//
                     $sql = "SELECT * FROM reviewValid";
                     $result = $connect->query($sql);
 
@@ -43,6 +44,7 @@
                     ?>
 
             <?php
+            //recupère en table reviewValid pour valider le post//
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['valide'])) {
                 $reviewId = $_POST['id_reviewValid'];
 
@@ -51,6 +53,7 @@
                 $stmtSelect->bindParam(':reviewId', $reviewId);
                 $stmtSelect->execute();
                 
+                //enregistrement en table review si validé//
                 if ($stmtSelect->rowCount() > 0) {
                     $row = $stmtSelect->fetch(PDO::FETCH_ASSOC);
 
@@ -75,6 +78,7 @@
         ?>
         <?php
 
+                //suppression de la table reviewValid si refusé//
                 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
                     $reviewId = $_POST['id_reviewValid'];
 
@@ -97,6 +101,7 @@
         </aside>
 
         <?php
+        //bouton retour//
         if (isset($_POST['logout'])) {
         session_destroy();
         header("Location: /server/connection.php");

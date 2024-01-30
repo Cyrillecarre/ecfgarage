@@ -1,4 +1,5 @@
 <?php
+//affichage dynamique des horaires//
 include('bdd.php'); 
 $sql = "SELECT admin_id,
 IFNULL (SUBSTRING(hours_ouverture_lundi_matin, 1, 5), 'Fermé') AS hours_ouverture_lundi_matin,
@@ -63,8 +64,8 @@ if ($result) {
                 <nav class="nav">
                     <ul class="navListe">
                         <li><a href="/index.php">Accueil</a></li>
-                        <li><a href="/pages/entretien.html">Entretien</a></li>
-                        <li><a href="/pages/reparation.html">Réparation</a></li>
+                        <li><a href="/server/entretien.php">Entretien</a></li>
+                        <li><a href="/server/reparation.php">Réparation</a></li>
                         <li><a href="/server/occasion.php">Véhicule Occasion</a></li>
                         <li><a href="/server/contact.php">Contact</a></li>
                         <li><a href="/server/review.php">Avis</a></li>
@@ -99,32 +100,8 @@ if ($result) {
             </div>
         </form>
         <div class="vehiculeContener">
-            <?php
-        if ($result !== false && $result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) { 
-                echo "<div class='vehicule'>";
-                echo "<h2 class='vehiculeName'>" . $row["name"] . "</h2>";
-                $image_path = $row["image_path"];
-                echo '<img class="imageContent" src="uploads/' . basename($image_path) . '" alt="Image du véhicule">';
-                echo "<div class='vehiculeDescription'>";
-                echo "<p class='vehiculeTextAnnee'>Année: " . $row["date"] ."</p>";
-                echo "<p class='vehiculeTextKm'>Kilométrage: " . $row["kilometer"] . " km" . "</p>";
-                echo "<p class='vehiculeText'>Carburant: " . $row["energy"] . "</p>";
-                echo "<p class='vehiculeText'>Boite de vitesse: " . $row["transmission"] . "</p>";
-                echo "<p class='vehiculeText'>Puissance fiscale: " . $row["power"] . "</p>";
-                echo "<p class='vehiculeText'>Nombre de portes: " . $row["gate"] . "</p>";
-                echo "<p class='vehiculeTextPrix'>Prix: " . $row["price"] . " €" . "</p>";
-                echo "<a href='/server/optionSup.php?id_car={$row["id"]}' class='vehiculeLink'>Voir plus</a>";
-                echo "</div>";
-                echo "</div>";
-            }
-        } else {
-            echo "Aucun véhicule trouvé.";
-        }
-        ?>
         
-        
-    </div>
+        </div>
 </main>
     <footer class="footer">
         <div>

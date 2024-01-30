@@ -53,6 +53,8 @@
         </aside>
 
         <?php
+
+        //bouton retour//
         if (isset($_POST['logout'])) {
         session_destroy();
         header("Location: /server/connection.php");
@@ -61,6 +63,7 @@
         ?>
         <?php
         include('bdd.php');
+        //ajout des horaires en table schedule//
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if (isset($_POST['hours_ouverture_lundi_matin']) && isset($_POST['hours_fermeture_lundi_midi'])
                 && isset($_POST['hours_ouverture_lundi_apres']) && isset($_POST['hours_fermeture_lundi_soir']) 
@@ -73,7 +76,8 @@
                 && isset($_POST['hours_ouverture_vendredi_matin']) && isset($_POST['hours_fermeture_vendredi_midi'])
                 && isset($_POST['hours_ouverture_vendredi_apres']) && isset($_POST['hours_fermeture_vendredi_soir']) 
                 && isset($_POST['hours_ouverture_samedi_matin']) && isset($_POST['hours_fermeture_samedi_midi'])) {
-                    
+
+                    //ajout de ':00' pour que les horaire ne prennent pas les secondes//
                 $hours_ouverture_lundi_matin = $_POST['hours_ouverture_lundi_matin'] . ':00';
                 $hours_fermeture_lundi_midi = $_POST['hours_fermeture_lundi_midi'] . ':00';
                 $hours_ouverture_lundi_apres = $_POST['hours_ouverture_lundi_apres'] . ':00';
@@ -102,7 +106,7 @@
                 $hours_ouverture_samedi_matin = $_POST['hours_ouverture_samedi_matin']. ':00';
                 $hours_fermeture_samedi_midi = $_POST['hours_fermeture_samedi_midi']. ':00';
                 
-
+                    //on prepare la requete et on l'envoi//
                 $sql = "UPDATE schedule SET hours_ouverture_lundi_matin = :hours_ouverture_lundi_matin, hours_fermeture_lundi_midi = :hours_fermeture_lundi_midi,
                                             hours_ouverture_lundi_apres = :hours_ouverture_lundi_apres, hours_fermeture_lundi_soir = :hours_fermeture_lundi_soir,
                                             hours_ouverture_mardi_matin = :hours_ouverture_mardi_matin, hours_fermeture_mardi_midi = :hours_fermeture_mardi_midi,

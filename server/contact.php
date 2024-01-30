@@ -61,8 +61,8 @@ if ($result) {
                 <nav class="nav">
                     <ul class="navListe">
                         <li><a href="/index.php">Accueil</a></li>
-                        <li><a href="/pages/entretien.html">Entretien</a></li>
-                        <li><a href="/pages/reparation.html">Réparation</a></li>
+                        <li><a href="/server/entretien.php">Entretien</a></li>
+                        <li><a href="/server/reparation.php">Réparation</a></li>
                         <li><a href="/server/occasion.php">Véhicule Occasion</a></li>
                         <li><a href="/server/contact.php">Contact</a></li>
                         <li><a href="/server/review.php">Avis</a></li>
@@ -88,7 +88,7 @@ if ($result) {
             </form>
         </div>
         <?php
-
+    //ajout du vehicule pour le contact personnalisé
         if (isset($_GET['id_car'])) {
             $id_car = $_GET['id_car'];
             $car_name = $_GET['name'];
@@ -113,24 +113,26 @@ if ($result) {
             $dotenv->load();
 
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                //filtrage des données pour la sécurité
                 $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
                 $tel = filter_input(INPUT_POST, 'tel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+                //construction du mail
                 $contentMail = "Nom : $nom\n";
                 $contentMail .= "Mail : $mail\n";
                 $contentMail .= "Téléphone : $tel\n";
                 $contentMail .= "Message : $message\n";
 
-                $destinataire = "garageparrot@gmail.com";
+                $destinataire = ""; //ajout de l'adresse mail ici et dans les parametre .env
                 $sujet = "Message de Contact GARAGE V.PARROT";
 
     
                 $email = new PHPMailer(true);
 
     try {
-        
+        //envoi de l'email si tout les parametre en .env sont correct
         $email->isSMTP();
         $email->Host = getenv('SMTP_HOST');
         $email->SMTPAuth = true;

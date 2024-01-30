@@ -17,6 +17,7 @@
             <button class="submit" type="submit">Ajouter</button>
         </form>
         <?php
+        //ajout d'une prestation dans la table service//
         include('bdd.php');
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if (isset($_POST['service']) && isset($_POST['description'])) {
@@ -43,6 +44,8 @@
         </form>
 
         <?php
+
+        //suppression d'une prestation de la table service//
         if (isset($_POST['submitDelete'])) {
             $deleteService = $_POST['serviceDelete'];
 
@@ -66,6 +69,8 @@
         </aside>
 
     <?php
+
+        //bouton retour//
         if (isset($_POST['logout'])) {
             session_destroy();
             header("Location: /server/connection.php");

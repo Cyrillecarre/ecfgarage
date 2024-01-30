@@ -134,18 +134,27 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+}
+
+.imageContent {
+    max-width: 65%;
+    height: auto;
 }
 
 .optionImage{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 80%;
     height: auto;
     box-sizing: border-box;
     margin: 0 auto;
+}
+
+.optionImage img {
+    max-width: 100%;
+    height: auto;
 }
 
 .optionText{

@@ -1,4 +1,5 @@
 <?php
+//affichage dynamique des horaires//
 include('bdd.php');  
 $sql = "SELECT admin_id,
 IFNULL (SUBSTRING(hours_ouverture_lundi_matin, 1, 5), 'Fermé') AS hours_ouverture_lundi_matin,
@@ -37,13 +38,13 @@ if ($result) {
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/confirmation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Contact</title>
+    <link rel="stylesheet" href="/styles/reparation.css">
+    <title>Document</title>
 </head>
 <body>
     <header class="header">
@@ -71,10 +72,29 @@ if ($result) {
                 </nav>        
         </div>
     </header>
-    <main class="mainContent">
-        <h1 class="titreContact">Confirmation d'envoi E-mail</h1>
-        <p>Merci de nous avoir contacté, nous vous repondrons dans les plus bref delais.</p><br>
-        <p>Nous vous invitons à regarder notre liste de véhicule d'occasion :</p><a href="/server/occasion.php">Véhicule Occasion</a>
+    <main>
+        <div class="reparationAccueil">
+            <h1>Réparation</h1>
+        </div>
+            <div class="reparation1">
+                <p>Garage V.PARROT vous propose également des prestations de réparation et d’entretien de votre véhicule. 
+                    Nous vous proposons des prestations de qualité à des prix compétitifs.
+            </p>
+        </div>
+        <div class="reparation">
+            <div class="reparation2">
+                <ul class="liReparation">
+                    <li><i class="fa-solid fa-arrow-right iColor"></i> Carrosserie</li>
+                    <li><i class="fa-solid fa-arrow-right iColor"></i> Pannes</li>
+                    <li><i class="fa-solid fa-arrow-right iColor"></i> Accidents</li>
+                    <li><i class="fa-solid fa-arrow-right iColor"></i> Transformations</li>
+                    <li><i class="fa-solid fa-arrow-right iColor"></i> Peintures</li>
+                </ul>
+            </div>
+            <div>
+                <img class="imgReparation" src="/image_ecf/reparation1.jpg" alt="reparation1">
+            </div>
+        </div> 
     </main>
     <footer class="footer">
         <div>
@@ -128,8 +148,6 @@ if ($result) {
         </p>
         </div>
     </footer>
-
-    <script src="/scripts/entretien.js"></script>
+    <script src="/scripts/reparation.js"></script>
 </body>
 </html>
-        

@@ -1,3 +1,4 @@
+//selection des etoiles pour leur activer le css
 document.addEventListener('DOMContentLoaded', function() {
     const star1 = document.getElementById('etoile1');
     const star2 = document.getElementById('etoile2');
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// action burger menu
 document.addEventListener('DOMContentLoaded', function() {
     const burgerMenu = document.getElementById('burger-menu');
     const navList = document.querySelectorAll('.navListe');

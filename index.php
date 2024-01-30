@@ -64,8 +64,8 @@ if ($result) {
                 <nav class="nav">
                     <ul class="navListe">
                         <li class="navList"><a href="/index.php">Accueil</a></li>
-                        <li class="navList"><a href="/pages/entretien.html">Entretien</a></li>
-                        <li class="navList"><a href="/pages/reparation.html">Réparation</a></li>
+                        <li class="navList"><a href="/server/entretien.php">Entretien</a></li>
+                        <li class="navList"><a href="/server/reparation.php">Réparation</a></li>
                         <li class="navList"><a href="/server/occasion.php">Véhicule Occasion</a></li>
                         <li class="navList"><a href="/server/contact.php">Contact</a></li>
                         <li class="navlist"><a href="/server/review.php">Avis</a></li>

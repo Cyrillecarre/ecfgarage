@@ -1,10 +1,12 @@
 
 <?php 
       include('bdd.php');  
+      //recupere les info du filtre//
         $prixMax = $_POST['rangeInputPrix'];
         $anneeMin = $_POST['rangeInputAnnee'];
         $kilometerMax = $_POST['rangeInputKm'];
 
+        //on selectionne dans la table car//
         $sql = "SELECT * FROM car WHERE price <= :prixMax AND date >= :anneeMin AND kilometer <= :kilometerMax";
 
         $stmt = $connect->prepare($sql);
@@ -15,6 +17,7 @@
 
         $cars = [];
 
+        //affichage sur la page vehicule //
         $html = '';
             if ($stmt->rowCount() > 0) {
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

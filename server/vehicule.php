@@ -1,6 +1,7 @@
 <?php
 include('bdd.php');
 
+//ajout des informations du formulaire en base de données table car//
 if (isset($_POST['submit'])) {
 
     $name = $_POST['name'];
@@ -16,10 +17,13 @@ if (isset($_POST['submit'])) {
     $image_tmp_name = $_FILES['image']['tmp_name'];
     $image_error = $_FILES['image']['error'];
 
+    //enregistrement des images dans le fichier uploads//
     if ($image_error === 0) {
         $unique_image_name = uniqid('image_') . '_' . time() . '.' . pathinfo($image_name, PATHINFO_EXTENSION);
         $destination_final = "uploads/" . $unique_image_name;
         move_uploaded_file($image_tmp_name, $destination_final);
+
+        //enregistrement en table car//
 
         $sql_insert_car = "INSERT INTO car (name, date, kilometer, energy, transmission, power, gate, price, image_path) 
                            VALUES (:name, :date, :kilometer, :energy, :transmission, :power, :gate, :price, :image_path)";
@@ -36,8 +40,10 @@ if (isset($_POST['submit'])) {
         $stmt_insert_car->bindParam(':image_path', $unique_image_name, PDO::PARAM_STR);
         $stmt_insert_car->execute();
 
+        //enregistrement en table options//
         $lastCarId = $connect->lastInsertId();
-
+        
+        //ajout des images supp de options dans le fichier upload//
         $imageNames = array($_FILES['image2']['name'], $_FILES['image3']['name'], $_FILES['image4']['name'], $_FILES['image5']['name']);
         $imageTmpNames = array($_FILES['image2']['tmp_name'], $_FILES['image3']['tmp_name'], $_FILES['image4']['tmp_name'], $_FILES['image5']['tmp_name']);
 
@@ -50,6 +56,7 @@ if (isset($_POST['submit'])) {
                 $destinationFinal = "uploads/" . $uniqueImageName;
                 move_uploaded_file($imageTmpName, $destinationFinal);
 
+                //enregistrement en table options
                 $sql_insert_option_image = "INSERT INTO options (data_type, data_content, car_id) 
                                             VALUES ('photo', :image_path, :car_id)";
 
@@ -82,7 +89,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-
+//bouton retour//
 <?php
 if (isset($_POST['logout'])) {
     session_destroy();
@@ -92,6 +99,7 @@ if (isset($_POST['logout'])) {
 ?>
 
 <?php
+//suppression d'un vehicule de la table car et des options de la table options
 if (isset($_POST['submitDelete'])) {
     $deleteName = $_POST['deleteName'];
     $deleteKilometer = $_POST['deleteKilometer'];

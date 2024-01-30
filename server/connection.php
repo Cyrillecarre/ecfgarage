@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,17 +35,21 @@
     <?php
     
     include('bdd.php');
+
+    //verification si c'est un admin ou un user en fonction de l'email et mot de passe 
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if (isset($_POST['email']) && isset($_POST['password'])) {
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
+                //on verfifie dans la table user
                 $sql_user = "SELECT * FROM user WHERE email = :email";
                 $stmt_user = $connect->prepare($sql_user);
                 $stmt_user->bindParam(':email', $email, PDO::PARAM_STR);
                 $stmt_user->execute();
                 $user = $stmt_user->fetch(PDO::FETCH_ASSOC);
     
+                // si c'est correct on redirige en temps que user sinon on continue le if
                 if ($user && password_verify($password, $user['password'])) {
                     $_SESSION['admin'] = false;
                     $_SESSION['email'] = $email;
@@ -53,12 +57,14 @@
                     header('location: /server/prive.php');
                     exit();
                 } else {
+                    //on verifie la table admin
                     $sql_admin = "SELECT * FROM admin WHERE email = :email";
                     $stmt_admin = $connect->prepare($sql_admin);
                     $stmt_admin->bindParam(':email', $email, PDO::PARAM_STR);
                     $stmt_admin->execute();
                     $admin = $stmt_admin->fetch(PDO::FETCH_ASSOC);
     
+                    //si c'est correct on redirige en temps que admin
                     if ($admin && password_verify($password, $admin['password'])) {
                         $_SESSION['admin'] = true;
                         $_SESSION['email'] = $email;

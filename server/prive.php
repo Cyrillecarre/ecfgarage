@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/prive.css">
-    <title>Document</title>
+    <title>Prive</title>
 </head>
 <body class="body">
     <h1 class="titrePrive">Bienvenue sur la page privé du Garage V.PARROT</h1>
@@ -57,6 +57,7 @@ session_start();
     <?php } ?>
 
     <?php
+    //bouton retour//
         if (isset($_POST['logout'])) {
         session_destroy();
         header("Location: /server/connection.php");

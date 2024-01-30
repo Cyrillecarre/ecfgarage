@@ -1,3 +1,4 @@
+//action du burger menu
 document.addEventListener('DOMContentLoaded', function() {
     const burgerMenu = document.getElementById('burger-menu');
     const navList = document.querySelectorAll('.navListe');
