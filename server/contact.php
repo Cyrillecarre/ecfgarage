@@ -125,7 +125,7 @@ if ($result) {
                 $contentMail .= "Téléphone : $tel\n";
                 $contentMail .= "Message : $message\n";
 
-                $destinataire = ""; //ajout de l'adresse mail ici et dans les parametre .env
+                $destinataire = $_ENV['DESTINATAIRE_EMAIL'];
                 $sujet = "Message de Contact GARAGE V.PARROT";
 
     
