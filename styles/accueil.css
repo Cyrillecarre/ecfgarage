@@ -415,7 +415,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: normal;
-    width: 100%;
+    width: 90%;
     align-items: center;
 }
 
@@ -431,6 +431,20 @@ a {
 }
 
 .article {
+    display: none;
+}
+
+.formPrestation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    justify-content: center;
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.imageContainer {
     display: none;
 }
 
@@ -472,6 +486,10 @@ a {
 
 .mainOuSommeNous {
     margin-bottom: 10rem;
+}
+
+.hr {
+    display: none;
 }
 
 .ouSommeNous {

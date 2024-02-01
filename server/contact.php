@@ -40,6 +40,7 @@ if ($result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="/styles/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Contact</title>
@@ -79,7 +80,7 @@ if ($result) {
                     <label class="label" for="mail">Mail :</label>
                     <input class="input" type="email" id="mail" name="mail" placeholder="Votre mail" required>
                     <label class="label" for="tel">Téléphone :</label>
-                    <input class="input" type="tel" id="tel" name="tel" placeholder="Votre téléphone" required>
+                    <input class="input" type="tel" id="tel" name="tel" pattern="[0-9]{10}" placeholder="Votre téléphone" required>
                     <label class="label" for="message">Message :</label>
                     <textarea class="inputText" name="message" id="message" cols="30" rows="10" placeholder="Votre message" required></textarea>
                     <label class="label" for="scales">J'accepte les conditions d'utilisation :</label>
@@ -111,42 +112,49 @@ if ($result) {
             require 'vendor/autoload.php';
             $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
             $dotenv->load();
+            
 
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                //filtrage des données pour la sécurité
+                // Filtrage des données pour la sécurité
                 $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $mail = filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_EMAIL);
                 $tel = filter_input(INPUT_POST, 'tel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-                //construction du mail
+            
+                // Construction du mail
                 $contentMail = "Nom : $nom\n";
                 $contentMail .= "Mail : $mail\n";
                 $contentMail .= "Téléphone : $tel\n";
                 $contentMail .= "Message : $message\n";
-
-                $destinataire = $_ENV['DESTINATAIRE_EMAIL'];
                 $sujet = "Message de Contact GARAGE V.PARROT";
+            
+                // Vérification dans le fichier .env
+                $smtpHost = getenv('SMTP_HOST');
+                $smtpUsername = getenv('SMTP_USERNAME');
+                $smtpPassword = getenv('SMTP_PASSWORD');
+                $smtpPort = getenv('SMTP_PORT');
+                $destinataire = $_ENV['DESTINATAIRE_EMAIL'];
 
-    
                 $email = new PHPMailer(true);
+            
+                try {
+                    // Configuration SMTP
+                    $email->isSMTP();
+                    $email->Host = $smtpHost;
+                    $email->SMTPAuth = true;
+                    $email->Username = $smtpUsername;
+                    $email->Password = $smtpPassword;
+                    $email->SMTPSecure = 'tls';
+                    $email->Port = $smtpPort;
 
-    try {
-        //envoi de l'email si tout les parametre en .env sont correct
-        $email->isSMTP();
-        $email->Host = getenv('SMTP_HOST');
-        $email->SMTPAuth = true;
-        $email->Username = getenv('SMTP_USERNAME');
-        $email->Password = getenv('SMTP_PASSWORD');
-        $email->SMTPSecure = 'tls';
-        $email->Port = getenv('SMTP_PORT');
-
-        $email->setFrom($mail, $nom);
-        $email->addAddress($destinataire);
-        $email->Subject = $sujet;
-        $email->Body = $contentMail;
-
-        $email->send();
+                    // Configuration du contenu du mail
+                    $email->setFrom($mail, $nom);
+                    $email->addAddress($destinataire);
+                    $email->Subject = $sujet;
+                    $email->Body = $contentMail;
+            
+                    // Envoi de l'e-mail
+                    $email->send();
 
         header("Location: confirmation.php");
         exit();

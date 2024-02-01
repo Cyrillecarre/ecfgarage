@@ -11,38 +11,38 @@
     <div class="form">
         <form class="formContent" method="post" action="schedule.php">
             <label class="label" for="lundi_matin">Lundi matin :</label>
-            <input type="time" name="hours_ouverture_lundi_matin" required>
-            <input type="time" name="hours_fermeture_lundi_midi" required>
+            <input type="time" name="hours_ouverture_lundi_matin">
+            <input type="time" name="hours_fermeture_lundi_midi">
             <label class="label" for="lundi_apres">Lundi après-midi :</label>
-            <input type="time" name="hours_ouverture_lundi_apres" required>
-            <input type="time" name="hours_fermeture_lundi_soir" required>
+            <input type="time" name="hours_ouverture_lundi_apres">
+            <input type="time" name="hours_fermeture_lundi_soir">
             <label class="label" for="mardi_matin">Mardi matin :</label>
-            <input type="time" name="hours_ouverture_mardi_matin" required>
-            <input type="time" name="hours_fermeture_mardi_midi" required>
+            <input type="time" name="hours_ouverture_mardi_matin">
+            <input type="time" name="hours_fermeture_mardi_midi">
             <label class="label" for="mardi_apres">Mardi après-midi :</label>
-            <input type="time" name="hours_ouverture_mardi_apres" required>
-            <input type="time" name="hours_fermeture_mardi_soir" required>
+            <input type="time" name="hours_ouverture_mardi_apres">
+            <input type="time" name="hours_fermeture_mardi_soir">
             <label class="label" for="mercredi_matin">Mercredi matin:</label>
-            <input type="time" name="hours_ouverture_mercredi_matin" required>
-            <input type="time" name="hours_fermeture_mercredi_midi" required>
+            <input type="time" name="hours_ouverture_mercredi_matin">
+            <input type="time" name="hours_fermeture_mercredi_midi">
             <label class="label" for="mercredi_apres">Mercredi après-midi :</label>
-            <input type="time" name="hours_ouverture_mercredi_apres" required>
-            <input type="time" name="hours_fermeture_mercredi_soir" required>
+            <input type="time" name="hours_ouverture_mercredi_apres">
+            <input type="time" name="hours_fermeture_mercredi_soir">
             <label class="label" for="jeudi_matin">Jeudi matin :</label>
-            <input type="time" name="hours_ouverture_jeudi_matin" required>
-            <input type="time" name="hours_fermeture_jeudi_midi" required>
+            <input type="time" name="hours_ouverture_jeudi_matin">
+            <input type="time" name="hours_fermeture_jeudi_midi">
             <label class="label" for="jeudi_apres">Jeudi après-midi :</label>
-            <input type="time" name="hours_ouverture_jeudi_apres" required>
-            <input type="time" name="hours_fermeture_jeudi_soir" required>
+            <input type="time" name="hours_ouverture_jeudi_apres">
+            <input type="time" name="hours_fermeture_jeudi_soir">
             <label class="label" for="vendredi_matin">Vendredi matin :</label>
-            <input type="time" name="hours_ouverture_vendredi_matin" required>
-            <input type="time" name="hours_fermeture_vendredi_midi" required>
+            <input type="time" name="hours_ouverture_vendredi_matin">
+            <input type="time" name="hours_fermeture_vendredi_midi">
             <label class="label" for="vendredi_apres">Vendredi après-midi :</label>
-            <input type="time" name="hours_ouverture_vendredi_apres" required>
-            <input type="time" name="hours_fermeture_vendredi_soir" required>
+            <input type="time" name="hours_ouverture_vendredi_apres">
+            <input type="time" name="hours_fermeture_vendredi_soir">
             <label class="label" for="samedi_matin">Samedi matin :</label>
-            <input type="time" name="hours_ouverture_samedi_matin" required>
-            <input type="time" name="hours_fermeture_samedi_midi" required>
+            <input type="time" name="hours_ouverture_samedi_matin">
+            <input type="time" name="hours_fermeture_samedi_midi">
             <input class="submit" type="submit" name="submit" value="Modifier les horaires">
         </form>
         <aside>
